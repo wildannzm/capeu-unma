@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\User\Home;
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', Home::class)->name('home');
 
 Route::middleware([
     'auth:sanctum',
