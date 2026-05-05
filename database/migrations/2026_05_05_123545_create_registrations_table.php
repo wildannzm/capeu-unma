@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->string('registration_number')->unique();
             $table->string('participant_type');
             $table->string('status')->default('draft');

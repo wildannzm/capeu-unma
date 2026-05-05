@@ -41,6 +41,20 @@
 <body>
     {{ $slot }}
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.addEventListener('swal:alert', event => {
+            const data = event.detail[0];
+            Swal.fire({
+                icon: data.type,
+                title: data.title,
+                text: data.text,
+                confirmButtonColor: '#0139CC',
+                background: '#0139CC',
+                color: '#ffffff',
+            });
+        });
+    </script>
 </body>
 
 </html>

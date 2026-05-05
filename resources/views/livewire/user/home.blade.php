@@ -10,11 +10,8 @@
                 CAPEU 2026
             </div>
             <div class="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
-                <a href="#"
-                    class="text-white hover:text-accent transition font-semibold text-sm sm:text-base whitespace-nowrap">Login</a>
-                <a href="#"
-                    class="bg-accent text-primary font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full hover:bg-highlight transition shadow-lg text-sm sm:text-base whitespace-nowrap">Register
-                    Now!</a>
+                <a href="#" class="text-white hover:text-accent transition font-semibold text-sm sm:text-base whitespace-nowrap">Login</a>
+                <a href="{{ route('register') }}" class="bg-accent text-primary font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full hover:bg-highlight transition shadow-lg text-sm sm:text-base whitespace-nowrap">Register Now!</a>
             </div>
         </div>
     </header>

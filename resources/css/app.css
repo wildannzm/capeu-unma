@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: 'Burgues Script';
-    src: url('/assets/fonts/Burgues-Script.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 @theme {
     --color-primary: #0139CC;
     --color-secondary: #2A76D8;
@@ -16,7 +8,6 @@
 
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-    --font-script: 'Burgues Script', cursive;
 }
 
 [x-cloak] {

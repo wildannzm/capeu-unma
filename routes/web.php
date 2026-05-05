@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\User\Home;
+use App\Livewire\User\RegistrationWizard;
 
 Route::get('/', Home::class)->name('home');
+Route::get('/register', RegistrationWizard::class)->name('register');
 
 Route::middleware([
     'auth:sanctum',
