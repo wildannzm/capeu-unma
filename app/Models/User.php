@@ -66,4 +66,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the registrations for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\Registration, $this>
+     */
+    public function registrations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Registration::class);
+    }
 }
