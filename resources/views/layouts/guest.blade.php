@@ -49,7 +49,7 @@
                 icon: data.type,
                 title: data.title,
                 text: data.text,
-                confirmButtonColor: '#0139CC',
+                confirmButtonColor: '#CAFF00',
                 background: '#0139CC',
                 color: '#ffffff',
             });

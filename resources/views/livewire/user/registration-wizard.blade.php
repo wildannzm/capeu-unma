@@ -2,10 +2,13 @@
     <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-10">
-            <h1 class="text-3xl md:text-5xl font-heading font-black text-white drop-shadow-md tracking-wider uppercase">
-                CAPEU 2026 Registration
-            </h1>
-            <p class="mt-2 text-highlight font-medium">Complete your application below</p>
+            <a href="{{ route('home') }}" class="inline-block hover:scale-105 transition-transform duration-300">
+                <h1
+                    class="text-3xl md:text-5xl font-heading font-black text-white drop-shadow-md tracking-wider uppercase">
+                    CAPEU 2026 Registration
+                </h1>
+                <p class="mt-2 text-highlight font-medium">Complete your application below</p>
+            </a>
         </div>
 
         <!-- Progress Indicator -->
