@@ -2,26 +2,26 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
-    use HasRoles;
 
     /** @use HasFactory<UserFactory> */
     use HasFactory;
 
     use HasProfilePhoto;
+    use HasRoles;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -73,9 +73,9 @@ class User extends Authenticatable
     /**
      * Get the registrations for the user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\Registration, $this>
+     * @return HasMany<Registration, $this>
      */
-    public function registrations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function registrations(): HasMany
     {
         return $this->hasMany(Registration::class);
     }

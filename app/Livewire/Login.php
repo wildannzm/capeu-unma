@@ -10,7 +10,9 @@ use Livewire\Component;
 class Login extends Component
 {
     public string $email = '';
+
     public string $password = '';
+
     public bool $remember = false;
 
     public function login()
@@ -22,20 +24,24 @@ class Login extends Component
 
         if (Auth::attempt($credentials, $this->remember)) {
             session()->regenerate();
-            
+
+            $user = Auth::user();
+            $redirectUrl = $user->hasRole('admin') ? url('/admin') : route('dashboard');
+
             $this->dispatch('swal:success', [
                 'title' => 'Success!',
                 'text' => 'Login successful. Redirecting...',
-                'url' => route('dashboard')
+                'url' => $redirectUrl,
             ]);
+
             return;
         }
 
         $this->addError('email', trans('auth.failed'));
-        
+
         $this->dispatch('swal:error', [
             'title' => 'Login Failed',
-            'text' => trans('auth.failed')
+            'text' => trans('auth.failed'),
         ]);
     }
 
