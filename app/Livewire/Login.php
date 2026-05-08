@@ -26,7 +26,7 @@ class Login extends Component
             session()->regenerate();
 
             $user = Auth::user();
-            $redirectUrl = $user->hasRole('admin') ? url('/admin') : route('dashboard');
+            $redirectUrl = $user->hasRole('admin') ? route('admin.dashboard') : route('dashboard');
 
             $this->dispatch('swal:success', [
                 'title' => 'Success!',

@@ -20,7 +20,7 @@ class LoginResponse implements LoginResponseContract
         $user = Auth::user();
 
         if ($user->hasRole('admin')) {
-            return redirect()->intended(config('filament.path', 'admin'));
+            return redirect()->route('admin.dashboard');
         }
 
         return redirect()->intended(config('fortify.home'));

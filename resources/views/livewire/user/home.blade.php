@@ -10,11 +10,21 @@
                 CAPEU 2026
             </div>
             <div class="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
-                <a href="{{ route('login') }}"
-                    class="text-white hover:text-accent transition font-semibold text-sm sm:text-base whitespace-nowrap">Login</a>
-                <a href="{{ route('register') }}"
-                    class="bg-accent text-primary font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full hover:bg-highlight transition shadow-lg text-sm sm:text-base whitespace-nowrap">Register
-                    Now!</a>
+                @auth
+                    @php
+                        $dashboardRoute = auth()->user()->hasRole('admin') ? route('admin.dashboard') : route('dashboard');
+                    @endphp
+                    <a href="{{ $dashboardRoute }}"
+                        class="bg-accent text-primary font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full hover:bg-highlight transition shadow-lg text-sm sm:text-base whitespace-nowrap">
+                        Go to Dashboard
+                    </a>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="text-white hover:text-accent transition font-semibold text-sm sm:text-base whitespace-nowrap">Login</a>
+                    <a href="{{ route('register') }}"
+                        class="bg-accent text-primary font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full hover:bg-highlight transition shadow-lg text-sm sm:text-base whitespace-nowrap">Register
+                        Now!</a>
+                @endauth
             </div>
         </div>
     </header>

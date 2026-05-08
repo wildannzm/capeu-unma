@@ -70,7 +70,7 @@
                                 <div>
                                     <label class="block font-heading font-bold text-sm mb-2 text-white/80">WhatsApp
                                         Number</label>
-                                    <input type="text" wire:model="personal_info.whatsapp"
+                                    <input type="tel" wire:model="personal_info.whatsapp"
                                         class="{{ $inputClass }}" placeholder="+62...">
                                     @error('personal_info.whatsapp')
                                         <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -244,6 +244,15 @@
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                            <div>
+                                <label class="block font-heading font-bold text-sm mb-2 text-white/80">Current GPA</label>
+                                <input type="number" step="0.01" wire:model="academic_info.gpa"
+                                    class="{{ $inputClass }}" placeholder="e.g. 3.75">
+                                @error('academic_info.gpa')
+                                    <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -365,7 +374,7 @@
                             <div class="md:col-span-2">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Phone
                                     Number</label>
-                                <input type="text" wire:model="health_emergency.emergency_phone"
+                                <input type="tel" wire:model="health_emergency.emergency_phone"
                                     class="{{ $inputClass }}" placeholder="+62...">
                                 @error('health_emergency.emergency_phone')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -380,6 +389,15 @@
                     <div class="space-y-6">
                         <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">Document
                             Uploads</h2>
+                        
+                        <div class="flex items-center gap-2 p-3 bg-highlight/5 border border-highlight/10 rounded-xl">
+                            <svg class="w-4 h-4 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-[10px] font-black text-white/60 uppercase tracking-widest">
+                                Supported: PDF, JPG, PNG • Max Size: 2MB per file
+                            </p>
+                        </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             @foreach ([
@@ -426,7 +444,7 @@
                                     </div>
 
                                     <div wire:loading wire:target="{{ $key }}"
-                                        class="text-[10px] text-highlight mt-2 animate-pulse">Uploading to server...
+                                        class="text-[10px] text-highlight mt-2 animate-pulse">Uploading file...
                                     </div>
                                     @error($key)
                                         <span class="text-red-400 text-[10px] mt-1">{{ $message }}</span>
@@ -442,6 +460,15 @@
                     <div class="space-y-6">
                         <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">Payment
                             Verification</h2>
+
+                        <div class="flex items-center gap-2 p-3 bg-highlight/5 border border-highlight/10 rounded-xl">
+                            <svg class="w-4 h-4 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-[10px] font-black text-white/60 uppercase tracking-widest">
+                                Supported: PDF, JPG, PNG • Max Size: 2MB per file
+                            </p>
+                        </div>
 
                         <div class="bg-primary/50 border border-highlight/30 rounded-2xl p-6 text-center shadow-inner">
                             <h3 class="font-heading font-black text-xl mb-2">Total Registration Fee</h3>
@@ -552,7 +579,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Short Video
                                     Introduction (YouTube Link) (Optional)</label>
-                                <input type="text" wire:model="advanced_info.video_url"
+                                <input type="url" wire:model="advanced_info.video_url"
                                     class="{{ $inputClass }}" placeholder="https://youtube.com/watch?v=...">
                             </div>
 

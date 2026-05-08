@@ -37,7 +37,7 @@ class RegistrationWizard extends Component
 
     public $academic_info = [
         'university_name' => '', 'country' => '', 'major' => '',
-        'year_semester' => '', 'student_id' => '',
+        'year_semester' => '', 'student_id' => '', 'gpa' => '',
     ];
 
     public $participation_details = [
@@ -123,6 +123,7 @@ class RegistrationWizard extends Component
                 'academic_info.major' => 'required|string|max:255',
                 'academic_info.year_semester' => 'required|string|in:1st Year,2nd Year,3rd Year,4th Year,Others',
                 'academic_info.student_id' => 'required|string|max:255',
+                'academic_info.gpa' => 'required|numeric|min:0|max:4',
             ]);
         } elseif ($this->currentStep == 3) {
             $this->validate([

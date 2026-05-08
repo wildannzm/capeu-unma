@@ -39,7 +39,7 @@
                                 Progress</h3>
                             <span
                                 class="text-[10px] font-black text-highlight uppercase tracking-widest bg-highlight/10 px-3 py-1 rounded-full border border-highlight/20 whitespace-nowrap">
-                                {{ round($registration->status == 'accepted'? 100: match ($registration->status) {'draft' => 25,'pending_payment' => 50,'under_review' => 75,default => 25}) }}%
+                                {{ round($registration->status == 'accepted'? 100: match ($registration->status) {'submitted', 'draft' => 33,'payment_verified', 'reviewed', 'verified' => 66,default => 33}) }}%
                                 Complete
                             </span>
                         </div>
@@ -47,17 +47,15 @@
                         <div class="relative px-4">
                             @php
                                 $statuses = [
-                                    ['key' => 'draft', 'label' => 'Draft', 'step' => 1],
-                                    ['key' => 'pending_payment', 'label' => 'Payment', 'step' => 2],
-                                    ['key' => 'under_review', 'label' => 'Review', 'step' => 3],
-                                    ['key' => 'accepted', 'label' => 'Final', 'step' => 4],
+                                    ['key' => 'submitted', 'label' => 'Submitted', 'step' => 1],
+                                    ['key' => 'verified', 'label' => 'Payment & Document Verified', 'step' => 2],
+                                    ['key' => 'accepted', 'label' => 'Accepted', 'step' => 3],
                                 ];
 
                                 $currentStep = match ($registration->status) {
-                                    'draft' => 1,
-                                    'pending_payment' => 2,
-                                    'under_review' => 3,
-                                    'accepted', 'rejected' => 4,
+                                    'submitted', 'draft' => 1,
+                                    'payment_verified', 'reviewed', 'verified' => 2,
+                                    'accepted', 'rejected' => 3,
                                     default => 1,
                                 };
                             @endphp
@@ -67,7 +65,7 @@
                                 <div
                                     class="absolute top-5 left-10 right-10 h-1 bg-white/10 rounded-full overflow-hidden">
                                     <div class="h-full bg-accent transition-all duration-1000 shadow-[0_0_20px_rgba(202,255,0,0.6)]"
-                                        style="width: {{ (($currentStep - 1) / 3) * 100 }}%"></div>
+                                        style="width: {{ (($currentStep - 1) / 2) * 100 }}%"></div>
                                 </div>
 
                                 <div class="relative flex justify-between">
@@ -75,13 +73,13 @@
                                         <div class="flex flex-col items-center group">
                                             <div
                                                 class="relative z-10 flex items-center justify-center w-11 h-11 rounded-2xl {{ $currentStep >= $step['step'] ? 'bg-accent text-primary shadow-[0_0_25px_rgba(202,255,0,0.5)] rotate-0' : 'bg-primary border border-white/10 text-white/30 rotate-12 group-hover:rotate-0 transition-all duration-500' }}">
-                                                @if ($currentStep > $step['step'] || ($currentStep == 4 && $registration->status == 'accepted' && $step['step'] == 4))
+                                                @if ($currentStep > $step['step'] || ($registration->status == 'accepted' && $step['step'] == 3))
                                                     <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="3" d="M5 13l4 4L19 7" />
                                                     </svg>
-                                                @elseif($currentStep == 4 && $registration->status == 'rejected' && $step['step'] == 4)
+                                                @elseif($registration->status == 'rejected' && $step['step'] == 3)
                                                     <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -108,13 +106,13 @@
                                     <div class="flex items-center space-x-6">
                                         <div
                                             class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center {{ $currentStep >= $step['step'] ? 'bg-accent text-primary shadow-[0_0_15px_rgba(202,255,0,0.3)]' : 'bg-white/5 border border-white/10 text-white/20' }}">
-                                            @if ($currentStep > $step['step'] || ($currentStep == 4 && $registration->status == 'accepted' && $step['step'] == 4))
+                                            @if ($currentStep > $step['step'] || ($registration->status == 'accepted' && $step['step'] == 3))
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         stroke-width="3" d="M5 13l4 4L19 7" />
                                                 </svg>
-                                            @elseif($currentStep == 4 && $registration->status == 'rejected' && $step['step'] == 4)
+                                            @elseif($registration->status == 'rejected' && $step['step'] == 3)
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round"

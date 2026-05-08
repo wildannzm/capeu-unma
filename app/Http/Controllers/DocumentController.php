@@ -15,20 +15,29 @@ class DocumentController extends Controller
      */
     public function show(Registration $registration, string $field): StreamedResponse
     {
-        // Ensure the authenticated user owns this registration
-        if (Auth::user()->id !== $registration->user_id) {
+        $user = Auth::user();
+
+        // Ensure the authenticated user owns this registration OR is an admin
+        if ($user->id !== $registration->user_id && ! $user->hasRole('admin')) {
             abort(403, 'Unauthorized access to this document.');
         }
 
-        // Map the field name to the actual column name
-        $column = $field.'_path';
+        $path = null;
 
-        // Check if the attribute exists and has a value
-        if (! isset($registration->$column) || empty($registration->$column)) {
-            abort(404, 'Document record not found.');
+        if ($field === 'proof') {
+            // Handle payment proof from the latest payment record
+            $payment = $registration->payments()->latest()->first();
+            $path = $payment?->payment_proof_path;
+        } else {
+            // Map the field name to the actual column name for registration
+            $column = $field.'_path';
+            $path = $registration->$column;
         }
 
-        $path = $registration->$column;
+        // Check if the path exists and has a value
+        if (empty($path)) {
+            abort(404, 'Document record not found.');
+        }
 
         // Check if the file actually exists in storage
         if (! Storage::disk('local')->exists($path)) {
