@@ -52,12 +52,11 @@
                     });
                 } else {
                     Swal.fire({
-                        title: 'Payment Proof',
                         imageUrl: url,
                         imageAlt: 'Payment Proof',
                         showCloseButton: true,
                         showConfirmButton: false,
-                        width: '30%',
+                        width: '25%',
                         color: '#ffffff',
                         customClass: {
                             container: 'swal-backdrop-blur',
@@ -130,7 +129,7 @@
 
         {{-- Payments Table --}}
         <div class="bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 overflow-hidden shadow-2xl">
-        <div class="hidden lg:block overflow-x-auto">
+            <div class="hidden lg:block overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="border-b border-white/5">
@@ -312,7 +311,8 @@
                                         ]);
                                         $isPdf = str_ends_with(strtolower($payment->payment_proof_path), '.pdf');
                                     @endphp
-                                    <button @click="viewProof('{{ $proofUrl }}', {{ $isPdf ? 'true' : 'false' }})"
+                                    <button
+                                        @click="viewProof('{{ $proofUrl }}', {{ $isPdf ? 'true' : 'false' }})"
                                         class="px-4 py-2 rounded-xl bg-highlight/10 border border-highlight/20 text-highlight text-[10px] font-black uppercase tracking-widest transition-all">
                                         View Proof
                                     </button>
@@ -324,7 +324,8 @@
                                     <button
                                         @click="confirmAction({{ $payment->id }}, 'verified', 'Approve Payment?', 'Mark this payment as verified?')"
                                         class="p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5 13l4 4L19 7" />
                                         </svg>
@@ -332,7 +333,8 @@
                                     <button
                                         @click="confirmAction({{ $payment->id }}, 'rejected', 'Reject Payment?', 'Mark this payment as rejected?')"
                                         class="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M6 18L18 6M6 6l12 12" />
                                         </svg>

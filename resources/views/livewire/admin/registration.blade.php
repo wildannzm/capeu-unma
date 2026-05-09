@@ -57,9 +57,8 @@ Livewire.on('swal:error', (data) => {
         },
         buttonsStyling: false
     });
-});
-
-" x-on:notify.window="
+});"
+    x-on:notify.window="
     const payload = Array.isArray($event.detail) ? $event.detail[0] : $event.detail;
     Swal.fire({
         icon: payload.type || 'success',
@@ -137,7 +136,8 @@ Livewire.on('swal:error', (data) => {
                 </thead>
                 <tbody class="divide-y divide-white/5">
                     @forelse($registrations as $index => $reg)
-                        <tr class="group hover:bg-white/[0.02] transition-colors" wire:key="reg-{{ $reg->id }}-{{ $reg->status }}">
+                        <tr class="group hover:bg-white/[0.02] transition-colors"
+                            wire:key="reg-{{ $reg->id }}-{{ $reg->status }}">
                             <td class="p-8">
                                 <span class="text-sm font-black text-white/40">
                                     {{ $registrations->firstItem() + $index }}
@@ -259,7 +259,8 @@ Livewire.on('swal:error', (data) => {
                             {{ $reg->user->email }}</p>
                     </div>
 
-                    <div class="flex items-center justify-between py-4 border-y border-white/5 text-[10px] font-black uppercase tracking-widest text-white/40">
+                    <div
+                        class="flex items-center justify-between py-4 border-y border-white/5 text-[10px] font-black uppercase tracking-widest text-white/40">
                         <div>
                             {{ $reg->created_at->format('M d, Y') }}
                         </div>
@@ -304,30 +305,51 @@ Livewire.on('swal:error', (data) => {
     </div>
 
     {{-- Detail Modal --}}
-    @if ($showDetailModal && $selectedRegistration)
+    @if ($showDetailModal && $this->selectedRegistration)
         <div class="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-10">
             <div class="absolute inset-0 bg-primary/80 backdrop-blur-md" wire:click="closeModal"></div>
 
             <div class="relative bg-primary border border-white/10 w-full max-w-5xl max-h-full overflow-y-auto rounded-[3rem] shadow-3xl custom-scrollbar z-10"
-                x-data="{ activeTab: 'personal' }">
+                x-data="{ 
+                    activeTab: 'personal',
+                    previewUrl: null,
+                    previewIsPdf: false,
+                    setPreview(url, isPdf) {
+                        this.previewUrl = url;
+                        this.previewIsPdf = isPdf;
+                    },
+                    clearPreview() {
+                        this.previewUrl = null;
+                    }
+                }">
                 {{-- Modal Header --}}
                 <div
                     class="sticky top-0 bg-primary/90 backdrop-blur-md border-b border-white/5 p-8 md:p-12 z-20 flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div class="flex items-center">
                         <div
                             class="w-16 h-16 rounded-3xl bg-highlight flex items-center justify-center text-primary font-black text-2xl shadow-2xl mr-6">
-                            {{ substr($selectedRegistration->user->name, 0, 1) }}
+                            {{ substr($this->selectedRegistration->user->name, 0, 1) }}
                         </div>
                         <div>
                             <h3 class="text-2xl font-black text-white tracking-tight">
-                                {{ $selectedRegistration->user->name }}</h3>
+                                {{ $this->selectedRegistration->user->name }}</h3>
                             <div class="flex items-center gap-3 mt-1">
                                 <span
-                                    class="text-[10px] font-black text-white/40 uppercase tracking-widest">{{ $selectedRegistration->user->email }}</span>
+                                    class="text-[10px] font-black text-white/40 uppercase tracking-widest">{{ $this->selectedRegistration->user->email }}</span>
                                 <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                                @php
+                                    $statusColor = match ($this->selectedRegistration->status) {
+                                        'accepted' => 'bg-green-500/10 text-green-400 border-green-500/20',
+                                        'rejected' => 'bg-red-500/10 text-red-400 border-red-500/20',
+                                        'verified' => 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
+                                        'payment_verified' => 'bg-highlight/10 text-highlight border-highlight/20',
+                                        'submitted' => 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+                                        default => 'bg-white/5 text-white/60 border-white/10',
+                                    };
+                                @endphp
                                 <span
                                     class="px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-[0.2em] border {{ $statusColor }}">
-                                    {{ str_replace('_', ' ', $selectedRegistration->status) }}
+                                    {{ str_replace('_', ' ', $this->selectedRegistration->status) }}
                                 </span>
                             </div>
                         </div>
@@ -346,17 +368,20 @@ Livewire.on('swal:error', (data) => {
                 <div class="p-8 md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {{-- Navigation Tabs --}}
                     <div class="space-y-3">
-                        <button @click="activeTab = 'personal'"
+                        <button @click="activeTab = 'personal'; clearPreview()"
                             :class="activeTab === 'personal' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
                             class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Personal
                             Info</button>
-                        <button @click="activeTab = 'academic'"
+                        <button @click="activeTab = 'academic'; clearPreview()"
                             :class="activeTab === 'academic' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
                             class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Academic
                             Info</button>
-                        <button @click="activeTab = 'documents'"
+                        <button @click="activeTab = 'documents'; clearPreview()"
                             :class="activeTab === 'documents' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
                             class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Documents</button>
+                        <button @click="activeTab = 'payment'; clearPreview()"
+                            :class="activeTab === 'payment' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
+                            class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Payment Info</button>
                     </div>
 
                     {{-- Tab Panels --}}
@@ -367,25 +392,25 @@ Livewire.on('swal:error', (data) => {
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Full Name
                                     </p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->personal_info['full_name'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['full_name'] ?? 'N/A' }}</p>
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Gender
                                     </p>
                                     <p class="text-sm font-bold text-white uppercase">
-                                        {{ $selectedRegistration->personal_info['gender'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['gender'] ?? 'N/A' }}</p>
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Phone
                                         Number</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->personal_info['whatsapp'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['whatsapp'] ?? 'N/A' }}</p>
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">
                                         Nationality</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->personal_info['nationality'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['nationality'] ?? 'N/A' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -396,43 +421,140 @@ Livewire.on('swal:error', (data) => {
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">
                                         University</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->academic_info['university_name'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['university_name'] ?? 'N/A' }}
+                                    </p>
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Major</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->academic_info['major'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['major'] ?? 'N/A' }}</p>
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Year of
                                         Study</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->academic_info['year_semester'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['year_semester'] ?? 'N/A' }}</p>
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">GPA</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $selectedRegistration->academic_info['gpa'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['gpa'] ?? 'N/A' }}</p>
                                 </div>
                             </div>
                         </div>
 
                         <div x-show="activeTab === 'documents'" class="space-y-8" x-transition>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {{-- Document Previewer --}}
+                            <div x-show="previewUrl" class="space-y-6" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
+                                <button @click="clearPreview()" class="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest hover:text-white transition-colors group outline-none">
+                                    <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                                    Back to Documents
+                                </button>
+                                <div class="rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/5 h-[65vh] relative shadow-inner group">
+                                    <template x-if="previewIsPdf">
+                                        <iframe :src="previewUrl" class="w-full h-full border-0"></iframe>
+                                    </template>
+                                    <template x-if="!previewIsPdf">
+                                        <div class="w-full h-full flex items-center justify-center p-8 bg-black/20">
+                                            <img :src="previewUrl" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl transition-transform duration-700 hover:scale-105">
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div x-show="!previewUrl" class="grid grid-cols-1 md:grid-cols-2 gap-8" x-transition>
                                 @foreach (['passport', 'student_card', 'formal_photo', 'cv', 'motivation_letter'] as $doc)
                                     @php
-                                        $path = $selectedRegistration->{$doc . '_path'} ?? '';
+                                        $path = $this->selectedRegistration->{$doc . '_path'} ?? '';
                                         $isPdf = str_ends_with(strtolower($path), '.pdf');
+                                        $url = route('documents.show', [
+                                            'registration' => $this->selectedRegistration->id,
+                                            'field' => $doc,
+                                        ]);
                                     @endphp
                                     <div class="space-y-3">
                                         <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">
                                             {{ str_replace('_', ' ', $doc) }}</p>
-                                        <x-document-preview :url="route('documents.show', [
-                                            'registration' => $selectedRegistration->id,
-                                            'field' => $doc,
-                                        ])" :type="$isPdf ? 'application/pdf' : 'image/jpeg'" :hasFile="!empty($path)" />
+                                        <div @click="setPreview('{{ $url }}', {{ $isPdf ? 'true' : 'false' }})" class="cursor-pointer">
+                                            <x-document-preview 
+                                                :url="$url" 
+                                                :type="$isPdf ? 'application/pdf' : 'image/jpeg'" 
+                                                :hasFile="!empty($path)" 
+                                                action="setPreview('{{ $url }}', {{ $isPdf ? 'true' : 'false' }})"
+                                            />
+                                        </div>
                                     </div>
                                 @endforeach
+                            </div>
+                        </div>
+
+                        <div x-show="activeTab === 'payment'" class="space-y-8" x-transition>
+                            {{-- Payment Proof Previewer --}}
+                            <div x-show="previewUrl" class="space-y-6" x-cloak x-transition>
+                                <button @click="clearPreview()" class="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest hover:text-white transition-colors group outline-none">
+                                    <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                                    Back to Details
+                                </button>
+                                <div class="rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/5 h-[65vh] relative shadow-inner">
+                                    <template x-if="previewIsPdf">
+                                        <iframe :src="previewUrl" class="w-full h-full border-0"></iframe>
+                                    </template>
+                                    <template x-if="!previewIsPdf">
+                                        <div class="w-full h-full flex items-center justify-center p-8 bg-black/20">
+                                            <img :src="previewUrl" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl transition-transform duration-700 hover:scale-105">
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div x-show="!previewUrl" x-transition>
+                                @php $payment = $this->selectedRegistration->payments->first(); @endphp
+                                @if ($payment)
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Amount
+                                                Paid</p>
+                                            <p class="text-sm font-bold text-white">{{ $payment->currency }}
+                                                {{ number_format($payment->amount, 2) }}</p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Method
+                                            </p>
+                                            <p class="text-sm font-bold text-white uppercase">{{ $payment->payment_method }}
+                                            </p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Status
+                                            </p>
+                                            <p class="text-sm font-bold text-highlight uppercase">{{ $payment->status }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-3">
+                                        <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Payment
+                                            Evidence</p>
+                                        @php
+                                            $isPdf = str_ends_with(strtolower($payment->payment_proof_path ?? ''), '.pdf');
+                                            $proofUrl = route('documents.show', [
+                                                'registration' => $this->selectedRegistration->id,
+                                                'field' => 'proof',
+                                            ]);
+                                        @endphp
+                                        <div @click="setPreview('{{ $proofUrl }}', {{ $isPdf ? 'true' : 'false' }})" class="cursor-pointer">
+                                            <x-document-preview 
+                                                :url="$proofUrl" 
+                                                :type="$isPdf ? 'application/pdf' : 'image/jpeg'" 
+                                                :hasFile="!empty($payment->payment_proof_path)" 
+                                                action="setPreview('{{ $proofUrl }}', {{ $isPdf ? 'true' : 'false' }})"
+                                            />
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="p-12 text-center bg-white/5 rounded-3xl border border-white/5">
+                                        <p class="text-white/20 font-black uppercase tracking-widest text-xs">No payment
+                                            information available</p>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -440,20 +562,20 @@ Livewire.on('swal:error', (data) => {
 
                 {{-- Modal Footer Actions --}}
                 <div class="p-8 md:p-12 border-t border-white/5 bg-white/[0.02] flex items-center justify-end gap-4">
-                    @if ($selectedRegistration->status === 'payment_verified')
+                    @if ($this->selectedRegistration->status === 'payment_verified')
                         <button
-                            @click="confirmAction({{ $selectedRegistration->id }}, 'verified', 'Verify Documents?', 'Confirm that all uploaded documents are valid and correct?')"
+                            @click="confirmAction({{ $this->selectedRegistration->id }}, 'verified', 'Verify Documents?', 'Confirm that all uploaded documents are valid and correct?')"
                             class="px-8 py-4 rounded-2xl bg-highlight text-primary font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-highlight/20">
                             Verify Documents
                         </button>
                         <button
-                            @click="confirmAction({{ $selectedRegistration->id }}, 'rejected', 'Reject Participant?', 'This will notify the participant that their application was unsuccessful.')"
+                            @click="confirmAction({{ $this->selectedRegistration->id }}, 'rejected', 'Reject Participant?', 'This will notify the participant that their application was unsuccessful.')"
                             class="px-8 py-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-500 font-black text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white hover:scale-105 active:scale-95 transition-all">
                             Reject Participant
                         </button>
-                    @elseif ($selectedRegistration->status === 'verified')
+                    @elseif ($this->selectedRegistration->status === 'verified')
                         <button
-                            @click="confirmAction({{ $selectedRegistration->id }}, 'accepted', 'Accept Registration?', 'Finalize this participant as accepted?')"
+                            @click="confirmAction({{ $this->selectedRegistration->id }}, 'accepted', 'Accept Registration?', 'Finalize this participant as accepted?')"
                             class="px-8 py-4 rounded-2xl bg-green-500 text-white font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-green-500/20">
                             Accept Registration
                         </button>

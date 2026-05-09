@@ -50,7 +50,7 @@ class RegistrationWizard extends Component
     ];
 
     public $payment_info = [
-        'payment_method' => '',
+        'payment_method' => 'Bank Transfer',
     ];
 
     public $declaration = [
@@ -151,7 +151,7 @@ class RegistrationWizard extends Component
             ]);
         } elseif ($this->currentStep == 6) {
             $this->validate([
-                'payment_info.payment_method' => 'required|string|in:Bank Transfer,E-Wallet',
+                'payment_info.payment_method' => 'required|string|in:Bank Transfer',
                 'proof_of_payment_path' => 'required|file|mimes:pdf,jpg,png|max:2048',
             ]);
         } elseif ($this->currentStep == 7) {
@@ -161,6 +161,13 @@ class RegistrationWizard extends Component
                 'declaration.use_media' => 'accepted',
             ]);
         }
+    }
+
+    public function messages(): array
+    {
+        return [
+            'advanced_info.video_url.regex' => 'Please provide a valid YouTube URL (e.g., https://www.youtube.com/watch?v=... or https://youtu.be/...).',
+        ];
     }
 
     public function submit()
@@ -249,7 +256,10 @@ class RegistrationWizard extends Component
                 'title' => 'Registration Failed',
                 'text' => 'We encountered an issue while saving your application. Please ensure all files are under 2MB and your email is unique, then try again.',
             ]);
+            return;
         }
+
+        return redirect()->route('dashboard');
     }
 
     public function render()

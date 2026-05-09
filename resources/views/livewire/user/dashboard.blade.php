@@ -1,5 +1,5 @@
 <div x-data="{ previewModal: false, previewUrl: '', previewTitle: '', previewType: '' }" class="space-y-10">
-    @if ($registration)
+    @if ($this->registration)
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div class="lg:col-span-2 space-y-10">
                 {{-- Status Banner --}}
@@ -18,7 +18,7 @@
                                 </h2>
                                 <p class="text-white/40 font-bold uppercase tracking-widest text-[10px]">
                                     Registration No: <span
-                                        class="text-white select-all">{{ $registration->registration_number }}</span>
+                                        class="text-white select-all">{{ $this->registration->registration_number }}</span>
                                 </p>
                             </div>
                             <div class="flex items-center space-x-4">
@@ -26,7 +26,7 @@
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-1">
                                         Participant Type</p>
                                     <p class="text-sm font-black text-highlight uppercase">
-                                        {{ str_replace('_', ' ', $registration->participant_type) }}</p>
+                                        {{ str_replace('_', ' ', $this->registration->participant_type) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                                 Progress</h3>
                             <span
                                 class="text-[10px] font-black text-highlight uppercase tracking-widest bg-highlight/10 px-3 py-1 rounded-full border border-highlight/20 whitespace-nowrap">
-                                {{ round($registration->status == 'accepted'? 100: match ($registration->status) {'submitted', 'draft' => 33,'payment_verified', 'reviewed', 'verified' => 66,default => 33}) }}%
+                                {{ round($this->registration->status == 'accepted'? 100: match ($this->registration->status) {'submitted', 'draft' => 33,'payment_verified', 'reviewed', 'verified' => 66,default => 33}) }}%
                                 Complete
                             </span>
                         </div>
@@ -52,7 +52,7 @@
                                     ['key' => 'accepted', 'label' => 'Accepted', 'step' => 3],
                                 ];
 
-                                $currentStep = match ($registration->status) {
+                                $currentStep = match ($this->registration->status) {
                                     'submitted', 'draft' => 1,
                                     'payment_verified', 'reviewed', 'verified' => 2,
                                     'accepted', 'rejected' => 3,
@@ -73,13 +73,13 @@
                                         <div class="flex flex-col items-center group">
                                             <div
                                                 class="relative z-10 flex items-center justify-center w-11 h-11 rounded-2xl {{ $currentStep >= $step['step'] ? 'bg-accent text-primary shadow-[0_0_25px_rgba(202,255,0,0.5)] rotate-0' : 'bg-primary border border-white/10 text-white/30 rotate-12 group-hover:rotate-0 transition-all duration-500' }}">
-                                                @if ($currentStep > $step['step'] || ($registration->status == 'accepted' && $step['step'] == 3))
+                                                @if ($currentStep > $step['step'] || ($this->registration->status == 'accepted' && $step['step'] == 3))
                                                     <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="3" d="M5 13l4 4L19 7" />
                                                     </svg>
-                                                @elseif($registration->status == 'rejected' && $step['step'] == 3)
+                                                @elseif($this->registration->status == 'rejected' && $step['step'] == 3)
                                                     <svg class="w-6 h-6" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -92,7 +92,7 @@
                                             <div class="mt-4 text-center">
                                                 <p
                                                     class="text-[9px] font-black uppercase tracking-[0.2em] {{ $currentStep >= $step['step'] ? 'text-white' : 'text-white/20' }}">
-                                                    {{ $step['key'] === 'accepted' && $registration->status === 'rejected' ? 'Rejected' : $step['label'] }}
+                                                    {{ $step['key'] === 'accepted' && $this->registration->status === 'rejected' ? 'Rejected' : $step['label'] }}
                                                 </p>
                                             </div>
                                         </div>
@@ -106,13 +106,13 @@
                                     <div class="flex items-center space-x-6">
                                         <div
                                             class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center {{ $currentStep >= $step['step'] ? 'bg-accent text-primary shadow-[0_0_15px_rgba(202,255,0,0.3)]' : 'bg-white/5 border border-white/10 text-white/20' }}">
-                                            @if ($currentStep > $step['step'] || ($registration->status == 'accepted' && $step['step'] == 3))
+                                            @if ($currentStep > $step['step'] || ($this->registration->status == 'accepted' && $step['step'] == 3))
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         stroke-width="3" d="M5 13l4 4L19 7" />
                                                 </svg>
-                                            @elseif($registration->status == 'rejected' && $step['step'] == 3)
+                                            @elseif($this->registration->status == 'rejected' && $step['step'] == 3)
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -125,7 +125,7 @@
                                         <div class="flex-1">
                                             <p
                                                 class="text-xs font-black uppercase tracking-widest {{ $currentStep >= $step['step'] ? 'text-white' : 'text-white/20' }}">
-                                                {{ $step['key'] === 'accepted' && $registration->status === 'rejected' ? 'Rejected' : $step['label'] }}
+                                                {{ $step['key'] === 'accepted' && $this->registration->status === 'rejected' ? 'Rejected' : $step['label'] }}
                                             </p>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                             </div>
                         </div>
                         <div class="space-y-4">
-                            @forelse($registration->payments as $payment)
+                            @forelse($this->registration->payments as $payment)
                                 <div
                                     class="flex items-center justify-between p-5 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/[0.08] transition-[background-color,transform] duration-300 overflow-hidden">
                                     <div>
@@ -198,21 +198,21 @@
                                     [
                                         'key' => 'passport',
                                         'label' => 'Passport',
-                                        'path' => $registration->passport_path,
+                                        'path' => $this->registration->passport_path,
                                         'icon' =>
                                             'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
                                     ],
                                     [
                                         'key' => 'student_card',
                                         'label' => 'Student Card',
-                                        'path' => $registration->student_card_path,
+                                        'path' => $this->registration->student_card_path,
                                         'icon' =>
                                             'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14',
                                     ],
                                     [
                                         'key' => 'formal_photo',
                                         'label' => 'Formal Photo',
-                                        'path' => $registration->formal_photo_path,
+                                        'path' => $this->registration->formal_photo_path,
                                         'icon' =>
                                             'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
                                     ],
@@ -223,7 +223,7 @@
                                 @if ($doc['path'])
                                     @php
                                         $viewRoute = route('documents.show', [
-                                            'registration' => $registration->id,
+                                            'registration' => $this->registration->id,
                                             'field' => $doc['key'],
                                         ]);
                                     @endphp
@@ -254,15 +254,7 @@
                                                         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                                 </svg>
                                             </button>
-                                            <a href="{{ $viewRoute }}" target="_blank" class="p-3 text-white/20 hover:text-highlight transition-colors duration-300 outline-none focus:outline-none"
-                                                title="Download Document">
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                </svg>
-                                            </a>
+
                                         </div>
                                     </div>
                                 @endif

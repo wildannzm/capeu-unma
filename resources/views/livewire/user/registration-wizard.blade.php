@@ -61,7 +61,7 @@
                                 <div>
                                     <label class="block font-heading font-bold text-sm mb-2 text-white/80">Email
                                         Address</label>
-                                    <input type="email" wire:model="personal_info.email" class="{{ $inputClass }}"
+                                    <input type="email" wire:model.blur="personal_info.email" class="{{ $inputClass }}"
                                         placeholder="john@example.com">
                                     @error('personal_info.email')
                                         <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -70,7 +70,7 @@
                                 <div>
                                     <label class="block font-heading font-bold text-sm mb-2 text-white/80">WhatsApp
                                         Number</label>
-                                    <input type="tel" wire:model="personal_info.whatsapp"
+                                    <input type="tel" wire:model.blur="personal_info.whatsapp"
                                         class="{{ $inputClass }}" placeholder="+62...">
                                     @error('personal_info.whatsapp')
                                         <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -80,7 +80,7 @@
                                     <label
                                         class="block font-heading font-bold text-sm mb-2 text-white/80">Password</label>
                                     <div class="relative group">
-                                        <input :type="show ? 'text' : 'password'" wire:model="password"
+                                        <input :type="show ? 'text' : 'password'" wire:model.blur="password"
                                             class="{{ $inputClass }} pr-12" placeholder="••••••••">
                                         <button type="button" @click="show = !show"
                                             class="absolute inset-y-0 right-0 pr-4 flex items-center text-white/40 hover:text-highlight transition-colors duration-200 focus:outline-none">
@@ -106,7 +106,7 @@
                                     <label class="block font-heading font-bold text-sm mb-2 text-white/80">Confirm
                                         Password</label>
                                     <div class="relative group">
-                                        <input :type="show ? 'text' : 'password'" wire:model="password_confirmation"
+                                        <input :type="show ? 'text' : 'password'" wire:model.blur="password_confirmation"
                                             class="{{ $inputClass }} pr-12" placeholder="••••••••">
                                         <button type="button" @click="show = !show"
                                             class="absolute inset-y-0 right-0 pr-4 flex items-center text-white/40 hover:text-highlight transition-colors duration-200 focus:outline-none">
@@ -130,7 +130,7 @@
                             <div class="md:col-span-2 pt-4">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Full Name (as in
                                     Passport)</label>
-                                <input type="text" wire:model="personal_info.full_name" class="{{ $inputClass }}"
+                                <input type="text" wire:model.blur="personal_info.full_name" class="{{ $inputClass }}"
                                     placeholder="John Doe">
                                 @error('personal_info.full_name')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -139,7 +139,7 @@
 
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Gender</label>
-                                <select wire:model="personal_info.gender" class="{{ $selectClass }}">
+                                <select wire:model.blur="personal_info.gender" class="{{ $selectClass }}">
                                     <option value="">Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -153,7 +153,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Date of
                                     Birth</label>
-                                <input type="date" wire:model="personal_info.dob"
+                                <input type="date" wire:model.blur="personal_info.dob"
                                     class="{{ $inputClass }} [color-scheme:dark]">
                                 @error('personal_info.dob')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -163,7 +163,7 @@
                             <div>
                                 <label
                                     class="block font-heading font-bold text-sm mb-2 text-white/80">Nationality</label>
-                                <input type="text" wire:model="personal_info.nationality"
+                                <input type="text" wire:model.blur="personal_info.nationality"
                                     class="{{ $inputClass }}" placeholder="Indonesian">
                                 @error('personal_info.nationality')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -173,7 +173,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Passport Number
                                     / ID Card</label>
-                                <input type="text" wire:model="personal_info.passport_id"
+                                <input type="text" wire:model.blur="personal_info.passport_id"
                                     class="{{ $inputClass }}">
                                 @error('personal_info.passport_id')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -193,7 +193,7 @@
                             <div class="md:col-span-2">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">University
                                     Name</label>
-                                <input type="text" wire:model="academic_info.university_name"
+                                <input type="text" wire:model.blur="academic_info.university_name"
                                     class="{{ $inputClass }}">
                                 @error('academic_info.university_name')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -203,7 +203,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Country of
                                     University</label>
-                                <input type="text" wire:model="academic_info.country"
+                                <input type="text" wire:model.blur="academic_info.country"
                                     class="{{ $inputClass }}">
                                 @error('academic_info.country')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -213,7 +213,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Study Program /
                                     Major</label>
-                                <input type="text" wire:model="academic_info.major" class="{{ $inputClass }}">
+                                <input type="text" wire:model.blur="academic_info.major" class="{{ $inputClass }}">
                                 @error('academic_info.major')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
                                 @enderror
@@ -222,7 +222,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Year of Study /
                                     Semester</label>
-                                <select wire:model="academic_info.year_semester" class="{{ $selectClass }}">
+                                <select wire:model.blur="academic_info.year_semester" class="{{ $selectClass }}">
                                     <option value="">Select Year</option>
                                     <option value="1st Year">1st Year</option>
                                     <option value="2nd Year">2nd Year</option>
@@ -238,7 +238,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Student ID
                                     Number</label>
-                                <input type="text" wire:model="academic_info.student_id"
+                                <input type="text" wire:model.blur="academic_info.student_id"
                                     class="{{ $inputClass }}">
                                 @error('academic_info.student_id')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -247,7 +247,7 @@
 
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Current GPA</label>
-                                <input type="number" step="0.01" wire:model="academic_info.gpa"
+                                <input type="number" step="0.01" wire:model.blur="academic_info.gpa"
                                     class="{{ $inputClass }}" placeholder="e.g. 3.75">
                                 @error('academic_info.gpa')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -267,7 +267,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Type of
                                     Participant</label>
-                                <select wire:model="participant_type" class="{{ $selectClass }}">
+                                <select wire:model.blur="participant_type" class="{{ $selectClass }}">
                                     <option value="">Select Type</option>
                                     <option value="CAPEU Member ($130 USD)">CAPEU Member ($130 USD)</option>
                                     <option value="Non-CAPEU Member ($150 USD)">Non-CAPEU Member ($150 USD)</option>
@@ -280,7 +280,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Motivation to
                                     Join (100–200 words)</label>
-                                <textarea wire:model="participation_details.motivation" rows="4" class="{{ $inputClass }}"></textarea>
+                                <textarea wire:model.blur="participation_details.motivation" rows="4" class="{{ $inputClass }}"></textarea>
                                 @error('participation_details.motivation')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
                                 @enderror
@@ -293,7 +293,7 @@
                                     @foreach (['Organization', 'Volunteering', 'International Program', 'Others'] as $exp)
                                         <label class="flex items-center space-x-3 cursor-pointer group">
                                             <input type="checkbox"
-                                                wire:model="participation_details.relevant_experience"
+                                                wire:model.blur="participation_details.relevant_experience"
                                                 value="{{ $exp }}" class="{{ $checkboxClass }}">
                                             <span
                                                 class="font-sans text-sm group-hover:text-accent transition">{{ $exp }}</span>
@@ -305,7 +305,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Description of
                                     Experience (if any)</label>
-                                <textarea wire:model="participation_details.experience_description" rows="3" class="{{ $inputClass }}"></textarea>
+                                <textarea wire:model.blur="participation_details.experience_description" rows="3" class="{{ $inputClass }}"></textarea>
                             </div>
                         </div>
                     </div>
@@ -321,21 +321,21 @@
                             <div class="md:col-span-2">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Medical
                                     Conditions (Optional)</label>
-                                <input type="text" wire:model="health_emergency.medical_conditions"
+                                <input type="text" wire:model.blur="health_emergency.medical_conditions"
                                     class="{{ $inputClass }}">
                             </div>
 
                             <div class="md:col-span-2">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Allergies
                                     (food/medicine) (Optional)</label>
-                                <input type="text" wire:model="health_emergency.allergies"
+                                <input type="text" wire:model.blur="health_emergency.allergies"
                                     class="{{ $inputClass }}">
                             </div>
 
                             <div class="md:col-span-2">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Dietary
                                     Preference</label>
-                                <select wire:model="health_emergency.dietary_preference" class="{{ $selectClass }}">
+                                <select wire:model.blur="health_emergency.dietary_preference" class="{{ $selectClass }}">
                                     <option value="">Select Preference</option>
                                     <option value="Halal">Halal</option>
                                     <option value="Vegetarian">Vegetarian</option>
@@ -354,7 +354,7 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Contact
                                     Name</label>
-                                <input type="text" wire:model="health_emergency.emergency_contact"
+                                <input type="text" wire:model.blur="health_emergency.emergency_contact"
                                     class="{{ $inputClass }}">
                                 @error('health_emergency.emergency_contact')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -364,7 +364,7 @@
                             <div>
                                 <label
                                     class="block font-heading font-bold text-sm mb-2 text-white/80">Relationship</label>
-                                <input type="text" wire:model="health_emergency.emergency_relationship"
+                                <input type="text" wire:model.blur="health_emergency.emergency_relationship"
                                     class="{{ $inputClass }}">
                                 @error('health_emergency.emergency_relationship')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -374,7 +374,7 @@
                             <div class="md:col-span-2">
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Phone
                                     Number</label>
-                                <input type="tel" wire:model="health_emergency.emergency_phone"
+                                <input type="tel" wire:model.blur="health_emergency.emergency_phone"
                                     class="{{ $inputClass }}" placeholder="+62...">
                                 @error('health_emergency.emergency_phone')
                                     <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
@@ -413,7 +413,7 @@
                                         class="block font-heading font-bold text-sm mb-3 text-white/80">{{ $label }}</label>
 
                                     <div class="relative">
-                                        <input type="file" wire:model="{{ $key }}" class="hidden"
+                                        <input type="file" wire:model.blur="{{ $key }}" class="hidden"
                                             id="file_{{ $key }}">
                                         <label for="file_{{ $key }}"
                                             class="w-full flex items-center justify-center gap-2 bg-primary/50 border-2 border-dashed border-white/20 rounded-xl py-8 cursor-pointer group-hover:border-highlight transition group-hover:bg-primary/80">
@@ -484,24 +484,54 @@
                         </div>
 
                         <div class="grid grid-cols-1 gap-6">
-                            <div>
-                                <label class="block font-heading font-bold text-sm mb-2 text-white/80">Payment
-                                    Method</label>
-                                <select wire:model="payment_info.payment_method" class="{{ $selectClass }}">
-                                    <option value="">Select Method</option>
-                                    <option value="Bank Transfer">Bank Transfer</option>
-                                    <option value="E-Wallet">E-Wallet</option>
-                                </select>
-                                @error('payment_info.payment_method')
-                                    <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
-                                @enderror
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4 animate-fadeIn">
+                                <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                                    <h4 class="font-heading font-black text-sm text-highlight uppercase tracking-widest">Bank Transfer Details</h4>
+                                    <span class="text-[10px] font-black bg-highlight text-primary px-2 py-0.5 rounded uppercase">Official Account</span>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Bank Name</p>
+                                        <p class="text-sm font-bold text-white">BANK BNI</p>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Account Name</p>
+                                        <p class="text-sm font-bold text-white uppercase">Universitas Majalengka</p>
+                                    </div>
+                                    <div class="space-y-1" x-data="{ copied: false }">
+                                        <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Account Number</p>
+                                        <div class="flex items-center gap-2">
+                                            <p class="text-sm font-bold text-white tracking-widest">2014201823</p>
+                                            <button type="button" 
+                                                @click="navigator.clipboard.writeText('2014201823'); copied = true; setTimeout(() => copied = false, 2000)"
+                                                class="text-highlight hover:text-accent transition-colors outline-none focus:outline-none"
+                                                title="Copy Account Number">
+                                                <svg x-show="!copied" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+                                                </svg>
+                                                <svg x-show="copied" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-cloak>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </button>
+                                            <span x-show="copied" class="text-[9px] font-black text-accent uppercase tracking-widest" x-cloak x-transition>Copied!</span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Swift Code</p>
+                                        <p class="text-sm font-bold text-white">BNINIDJAXXX</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2">
+                                    <p class="text-[10px] text-white/40 italic">*Please make sure to upload the transfer receipt below after completing the payment.</p>
+                                </div>
                             </div>
 
                             <div class="bg-white/5 p-6 rounded-2xl border border-white/10 group">
                                 <label class="block font-heading font-bold text-sm mb-3 text-white/80">Proof of
                                     Payment</label>
                                 <div class="relative">
-                                    <input type="file" wire:model="proof_of_payment_path" class="hidden"
+                                    <input type="file" wire:model.blur="proof_of_payment_path" class="hidden"
                                         id="file_proof">
                                     <label for="file_proof"
                                         class="w-full flex items-center justify-center gap-2 bg-primary/50 border-2 border-dashed border-white/20 rounded-xl py-12 cursor-pointer group-hover:border-highlight transition">
@@ -556,7 +586,7 @@
         'use_media' => 'I allow the committee to use my photos/videos for documentation',
     ] as $key => $label)
                                 <label class="flex items-start space-x-3 cursor-pointer group">
-                                    <input type="checkbox" wire:model="declaration.{{ $key }}"
+                                    <input type="checkbox" wire:model.blur="declaration.{{ $key }}"
                                         class="{{ $checkboxClass }} mt-1">
                                     <span
                                         class="font-sans text-sm text-white/90 group-hover:text-accent transition">{{ $label }}</span>
@@ -579,20 +609,23 @@
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Short Video
                                     Introduction (YouTube Link) (Optional)</label>
-                                <input type="url" wire:model="advanced_info.video_url"
-                                    class="{{ $inputClass }}" placeholder="https://youtube.com/watch?v=...">
+                                <input type="url" wire:model.blur="advanced_info.video_url"
+                                    class="{{ $inputClass }}" placeholder="https://www.youtube.com/watch?v=...">
+                                @error('advanced_info.video_url')
+                                    <span class="text-red-400 text-xs mt-1">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Program
                                     Expectations (Optional)</label>
-                                <textarea wire:model="advanced_info.expectations" rows="3" class="{{ $inputClass }}"></textarea>
+                                <textarea wire:model.blur="advanced_info.expectations" rows="3" class="{{ $inputClass }}"></textarea>
                             </div>
 
                             <div>
                                 <label class="block font-heading font-bold text-sm mb-2 text-white/80">Talent for
                                     Cultural Night (Optional)</label>
-                                <input type="text" wire:model="advanced_info.cultural_talent"
+                                <input type="text" wire:model.blur="advanced_info.cultural_talent"
                                     class="{{ $inputClass }}" placeholder="e.g. Traditional Dance, Singing">
                             </div>
                         </div>

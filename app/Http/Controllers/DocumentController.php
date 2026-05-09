@@ -3,47 +3,66 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registration;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DocumentController extends Controller
 {
     /**
-     * Show the specified document.
+     * Handle the request to view or download a private document.
      */
-    public function show(Registration $registration, string $field): StreamedResponse
+    public function show(Registration $registration, string $field): Response
     {
+        // Custom authorization logic
         $user = Auth::user();
 
-        // Ensure the authenticated user owns this registration OR is an admin
-        if ($user->id !== $registration->user_id && ! $user->hasRole('admin')) {
-            abort(403, 'Unauthorized access to this document.');
+        if (!$user) {
+            abort(401);
+        }
+
+        // Authorization: User owns the registration OR is an admin/committee
+        if ($user->id !== $registration->user_id && ! $user->hasRole(['admin', 'committee'])) {
+            abort(403, 'Unauthorized access to document.');
         }
 
         $path = null;
 
-        if ($field === 'proof') {
-            // Handle payment proof from the latest payment record
+        // Handle specific fields
+        if (in_array($field, ['proof', 'payment_proof', 'proof_of_payment'])) {
             $payment = $registration->payments()->latest()->first();
-            $path = $payment?->payment_proof_path;
+            $path = $payment ? $payment->payment_proof_path : null;
         } else {
-            // Map the field name to the actual column name for registration
-            $column = $field.'_path';
-            $path = $registration->$column;
+            // Mapping for other document fields
+            $allowedFields = [
+                'passport',
+                'student_card',
+                'formal_photo',
+                'cv',
+                'motivation_letter',
+            ];
+
+            // Normalize field name (remove _path if present)
+            $cleanField = str_replace('_path', '', $field);
+
+            if (in_array($cleanField, $allowedFields)) {
+                $path = $registration->{$cleanField . '_path'};
+            }
         }
 
-        // Check if the path exists and has a value
-        if (empty($path)) {
-            abort(404, 'Document record not found.');
+        if (! $path || ! Storage::disk('local')->exists($path)) {
+            abort(404, 'Document not found.');
         }
 
-        // Check if the file actually exists in storage
-        if (! Storage::disk('local')->exists($path)) {
-            abort(404, 'Document file not found on server.');
+        $fullPath = Storage::disk('local')->path($path);
+        
+        // Ensure no output buffering issues
+        if (ob_get_level()) {
+            ob_end_clean();
         }
 
-        return Storage::disk('local')->response($path);
+        return response()->file($fullPath, [
+            'Cache-Control' => 'no-cache, must-revalidate',
+        ]);
     }
 }

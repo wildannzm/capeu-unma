@@ -5,6 +5,7 @@ namespace App\Livewire\User;
 use App\Models\Registration;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -14,17 +15,14 @@ use Livewire\Component;
 class Dashboard extends Component
 {
     /**
-     * The user's registration.
+     * Get the user's registration.
      */
-    public ?Registration $registration = null;
-
-    /**
-     * Mount the component.
-     */
-    public function mount(): void
+    #[Computed]
+    public function registration(): ?Registration
     {
-        $this->registration = Auth::user()->registrations()
+        return Auth::user()->registrations()
             ->with(['payments'])
+            ->select(['id', 'user_id', 'registration_number', 'status', 'participant_type', 'passport_path', 'student_card_path', 'formal_photo_path', 'cv_path', 'motivation_letter_path', 'created_at'])
             ->latest()
             ->first();
     }

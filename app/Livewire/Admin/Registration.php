@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Registration as RegistrationModel;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -18,7 +19,7 @@ class Registration extends Component
 
     public string $statusFilter = '';
 
-    public ?RegistrationModel $selectedRegistration = null;
+    public ?int $selectedRegistrationId = null;
 
     public bool $showDetailModal = false;
 
@@ -34,8 +35,19 @@ class Registration extends Component
 
     public function viewDetails(int $id)
     {
-        $this->selectedRegistration = RegistrationModel::with('user')->findOrFail($id);
+        $this->selectedRegistrationId = $id;
         $this->showDetailModal = true;
+    }
+
+    #[Computed]
+    public function selectedRegistration(): ?RegistrationModel
+    {
+        if (! $this->selectedRegistrationId) {
+            return null;
+        }
+
+        return RegistrationModel::with(['user', 'payments'])
+            ->findOrFail($this->selectedRegistrationId);
     }
 
     public function updateStatus(int $id, string $status)
@@ -43,8 +55,8 @@ class Registration extends Component
         $registration = RegistrationModel::findOrFail($id);
         $registration->update(['status' => $status]);
 
-        if ($this->selectedRegistration && $this->selectedRegistration->id === $id) {
-            $this->selectedRegistration->refresh();
+        if ($this->selectedRegistrationId === $id) {
+            unset($this->selectedRegistration);
         }
 
         $this->dispatch('notify', [
@@ -56,12 +68,14 @@ class Registration extends Component
     public function closeModal()
     {
         $this->showDetailModal = false;
-        $this->selectedRegistration = null;
+        $this->selectedRegistrationId = null;
+        unset($this->selectedRegistration);
     }
 
     public function render()
     {
-        $registrations = RegistrationModel::with('user')
+        $registrations = RegistrationModel::with(['user', 'payments'])
+            ->select(['id', 'user_id', 'registration_number', 'status', 'participant_type', 'created_at'])
             ->when($this->search, function ($query) {
                 $query->whereHas('user', function ($q) {
                     $q->where('name', 'like', '%'.$this->search.'%')
