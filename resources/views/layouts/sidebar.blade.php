@@ -233,9 +233,9 @@
                                     'border' => 'border-highlight/20',
                                 ],
                                 'submitted' => [
-                                    'bg' => 'bg-blue-500/10',
-                                    'text' => 'text-blue-400',
-                                    'border' => 'border-blue-500/20',
+                                    'bg' => 'bg-orange-500/10',
+                                    'text' => 'text-orange-400',
+                                    'border' => 'border-orange-500/20',
                                 ],
                                 default => [
                                     'bg' => 'bg-white/5',

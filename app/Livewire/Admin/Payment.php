@@ -39,7 +39,12 @@ class Payment extends Component
             $updateData['verified_at'] = now();
             
             // Also update the associated registration status if needed
-            $payment->registration->update(['status' => 'payment_verified']); // Or whatever the next status is
+            $payment->registration->update(['status' => 'payment_verified']);
+        }
+
+        if ($status === 'rejected') {
+            // If payment is rejected, the registration is also rejected
+            $payment->registration->update(['status' => 'rejected']);
         }
 
         $payment->update($updateData);

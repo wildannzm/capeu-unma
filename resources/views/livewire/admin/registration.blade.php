@@ -161,7 +161,7 @@ Livewire.on('swal:error', (data) => {
                                         'rejected' => 'bg-red-500/10 text-red-400 border-red-500/20',
                                         'verified' => 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
                                         'payment_verified' => 'bg-highlight/10 text-highlight border-highlight/20',
-                                        'submitted' => 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+                                        'submitted' => 'bg-orange-500/10 text-orange-400 border-orange-500/20',
                                         default => 'bg-white/5 text-white/60 border-white/10',
                                     };
                                 @endphp
@@ -243,7 +243,7 @@ Livewire.on('swal:error', (data) => {
                                 'rejected' => 'bg-red-500/10 text-red-400 border-red-500/20',
                                 'verified' => 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
                                 'payment_verified' => 'bg-highlight/10 text-highlight border-highlight/20',
-                                'submitted' => 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+                                'submitted' => 'bg-orange-500/10 text-orange-400 border-orange-500/20',
                                 default => 'bg-white/5 text-white/60 border-white/10',
                             };
                         @endphp
@@ -343,7 +343,7 @@ Livewire.on('swal:error', (data) => {
                                         'rejected' => 'bg-red-500/10 text-red-400 border-red-500/20',
                                         'verified' => 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
                                         'payment_verified' => 'bg-highlight/10 text-highlight border-highlight/20',
-                                        'submitted' => 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+                                        'submitted' => 'bg-orange-500/10 text-orange-400 border-orange-500/20',
                                         default => 'bg-white/5 text-white/60 border-white/10',
                                     };
                                 @endphp
