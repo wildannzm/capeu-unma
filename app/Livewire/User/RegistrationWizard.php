@@ -241,7 +241,7 @@ class RegistrationWizard extends Component
                 'status' => 'pending',
             ]);
 
-            session()->forget('registration_data'); // Clear session if we used it
+            session()->forget('registration_data');
 
             $this->dispatch('swal:alert', [
                 'type' => 'success',
@@ -249,7 +249,7 @@ class RegistrationWizard extends Component
                 'text' => 'Your account has been created and your application submitted.',
             ]);
 
-            return redirect()->to('/');
+            return redirect()->route('dashboard');
         } catch (\Exception $e) {
             $this->dispatch('swal:alert', [
                 'type' => 'error',
@@ -258,8 +258,6 @@ class RegistrationWizard extends Component
             ]);
             return;
         }
-
-        return redirect()->route('dashboard');
     }
 
     public function render()

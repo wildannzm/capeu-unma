@@ -32,7 +32,7 @@
 
                     <div class="w-full pt-6 border-t border-white/5 space-y-4">
                         <!-- Verification Status -->
-                        <div class="flex items-center justify-between">
+                        {{-- <div class="flex items-center justify-between">
                             <span class="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Verification</span>
                             @if ($user->hasVerifiedEmail())
                                 <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-black uppercase tracking-widest border border-green-500/20 flex items-center gap-1 whitespace-nowrap">
@@ -49,7 +49,7 @@
                                     Pending
                                 </span>
                             @endif
-                        </div>
+                        </div> --}}
 
                         <!-- 2FA Status -->
                         <div class="flex items-center justify-between">
@@ -75,7 +75,7 @@
             </div>
 
             <!-- Email Verification CTA -->
-            @if (!$user->hasVerifiedEmail())
+            {{-- @if (!$user->hasVerifiedEmail())
                 <div class="bg-red-500/10 border border-red-500/20 rounded-3xl p-6 space-y-4">
                     <div class="flex items-center gap-4">
                         <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-red-500/20 text-red-400 shrink-0 flex items-center justify-center">
@@ -95,7 +95,7 @@
                         <span wire:loading wire:target="sendEmailVerification">Sending...</span>
                     </button>
                 </div>
-            @endif
+            @endif --}}
         </div>
 
         <!-- Main Content: Forms -->
