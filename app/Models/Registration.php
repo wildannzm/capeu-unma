@@ -2,16 +2,35 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Registration extends Model
 {
     /**
-     * The attributes that aren't mass assignable.
+     * The attributes that are mass assignable.
      *
-     * @var array<string>|bool
+     * @var array<int, string>
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'registration_number',
+        'participant_type',
+        'status',
+        'personal_info',
+        'academic_info',
+        'participation_details',
+        'health_emergency',
+        'declaration',
+        'advanced_info',
+        'passport_path',
+        'student_card_path',
+        'formal_photo_path',
+        'cv_path',
+        'motivation_letter_path',
+    ];
 
     /**
      * Get the attributes that should be cast.
@@ -21,21 +40,21 @@ class Registration extends Model
     protected function casts(): array
     {
         return [
-            'personal_info' => \Illuminate\Database\Eloquent\Casts\AsArrayObject::class,
-            'academic_info' => \Illuminate\Database\Eloquent\Casts\AsArrayObject::class,
-            'participation_details' => \Illuminate\Database\Eloquent\Casts\AsArrayObject::class,
-            'health_emergency' => \Illuminate\Database\Eloquent\Casts\AsArrayObject::class,
-            'declaration' => \Illuminate\Database\Eloquent\Casts\AsArrayObject::class,
-            'advanced_info' => \Illuminate\Database\Eloquent\Casts\AsArrayObject::class,
+            'personal_info' => AsArrayObject::class,
+            'academic_info' => AsArrayObject::class,
+            'participation_details' => AsArrayObject::class,
+            'health_emergency' => AsArrayObject::class,
+            'declaration' => AsArrayObject::class,
+            'advanced_info' => AsArrayObject::class,
         ];
     }
 
     /**
      * Get the user that owns the registration.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -43,9 +62,9 @@ class Registration extends Model
     /**
      * Get the payments for the registration.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\Payment, $this>
+     * @return HasMany<Payment, $this>
      */
-    public function payments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function payments(): HasMany
     {
         return $this->hasMany(Payment::class);
     }

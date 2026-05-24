@@ -3,15 +3,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Payment extends Model
 {
     /**
-     * The attributes that aren't mass assignable.
+     * The attributes that are mass assignable.
      *
-     * @var array<string>|bool
+     * @var array<int, string>
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'registration_id',
+        'amount',
+        'currency',
+        'payment_method',
+        'transaction_id',
+        'payment_proof_path',
+        'status',
+        'verified_by',
+        'verified_at',
+    ];
 
     /**
      * Get the attributes that should be cast.
@@ -29,9 +40,9 @@ class Payment extends Model
     /**
      * Get the registration that owns the payment.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Registration, $this>
+     * @return BelongsTo<Registration, $this>
      */
-    public function registration(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function registration(): BelongsTo
     {
         return $this->belongsTo(Registration::class);
     }
@@ -39,9 +50,9 @@ class Payment extends Model
     /**
      * Get the user that verified the payment.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\User, $this>
+     * @return BelongsTo<User, $this>
      */
-    public function verifier(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function verifier(): BelongsTo
     {
         return $this->belongsTo(User::class, 'verified_by');
     }

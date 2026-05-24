@@ -32,7 +32,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'role_or_permission' => RoleOrPermissionMiddleware::class,
         ]);
         $middleware->prepend(ProxyHost::class);
-        $middleware->trustProxies(at: '*');
+        $middleware->trustProxies(at: [
+            '104.21.32.247',
+            '172.67.157.14',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
