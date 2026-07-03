@@ -13,3 +13,8 @@
 [x-cloak] {
     display: none;
 }
+
+::selection {
+    background-color: var(--color-highlight);
+    color: #1b1b18; /* Dark color instead of primary blue */
+}

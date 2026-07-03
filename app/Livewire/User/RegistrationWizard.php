@@ -20,7 +20,7 @@ class RegistrationWizard extends Component
 
     public $currentStep = 1;
 
-    public $totalSteps = 8;
+    public $totalSteps = 9;
 
     // Native Columns
     public $participant_type = '';
@@ -47,6 +47,10 @@ class RegistrationWizard extends Component
     public $health_emergency = [
         'medical_conditions' => '', 'allergies' => '', 'dietary_preference' => '',
         'emergency_contact' => '', 'emergency_relationship' => '', 'emergency_phone' => '',
+    ];
+
+    public $transportation = [
+        'type' => '',
     ];
 
     public $payment_info = [
@@ -87,9 +91,14 @@ class RegistrationWizard extends Component
     public function updated($propertyName)
     {
         // Don't save files or passwords to session for security/performance
-        if (! in_array($propertyName, ['passport_path', 'student_card_path', 'formal_photo_path', 'cv_path', 'motivation_letter_path', 'proof_of_payment_path', 'password', 'password_confirmation'])) {
-            session(['registration_data' => $this->all()]);
+        $data = $this->all();
+        $excludedKeys = ['passport_path', 'student_card_path', 'formal_photo_path', 'cv_path', 'motivation_letter_path', 'proof_of_payment_path', 'password', 'password_confirmation'];
+        
+        foreach ($excludedKeys as $key) {
+            unset($data[$key]);
         }
+        
+        session(['registration_data' => $data]);
     }
 
     public function nextStep()
@@ -143,18 +152,22 @@ class RegistrationWizard extends Component
             ]);
         } elseif ($this->currentStep == 5) {
             $this->validate([
+                'transportation.type' => 'required|string|in:Plane,Train,Bus,Personal Vehicle,Other',
+            ]);
+        } elseif ($this->currentStep == 6) {
+            $this->validate([
                 'passport_path' => 'required|file|mimes:pdf,jpg,png|max:2048',
                 'student_card_path' => 'required|file|mimes:pdf,jpg,png|max:2048',
                 'formal_photo_path' => 'required|file|mimes:pdf,jpg,png|max:2048',
                 'cv_path' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
                 'motivation_letter_path' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
             ]);
-        } elseif ($this->currentStep == 6) {
+        } elseif ($this->currentStep == 7) {
             $this->validate([
                 'payment_info.payment_method' => 'required|string|in:Bank Transfer',
                 'proof_of_payment_path' => 'required|file|mimes:pdf,jpg,png|max:2048',
             ]);
-        } elseif ($this->currentStep == 7) {
+        } elseif ($this->currentStep == 8) {
             $this->validate([
                 'declaration.accurate_info' => 'accepted',
                 'declaration.follow_rules' => 'accepted',
@@ -179,6 +192,16 @@ class RegistrationWizard extends Component
             'advanced_info.expectations' => 'nullable|string',
             'advanced_info.cultural_talent' => 'nullable|string',
         ]);
+
+        if (! $this->passport_path || ! $this->student_card_path || ! $this->formal_photo_path || ! $this->proof_of_payment_path) {
+            $this->currentStep = 6;
+            $this->dispatch('swal:alert', [
+                'type' => 'warning',
+                'title' => 'Files Missing',
+                'text' => 'It looks like your session was interrupted or you refreshed the page. Please re-upload your files to continue.',
+            ]);
+            return;
+        }
 
         try {
             // Create User Account
@@ -207,6 +230,7 @@ class RegistrationWizard extends Component
             $registration->participation_details = $participation;
 
             $registration->health_emergency = $this->health_emergency;
+            $registration->transportation = $this->transportation;
             $registration->declaration = $this->declaration;
             $registration->advanced_info = $this->advanced_info;
 

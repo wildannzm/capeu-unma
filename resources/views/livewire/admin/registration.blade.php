@@ -376,6 +376,15 @@ Livewire.on('swal:error', (data) => {
                             :class="activeTab === 'academic' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
                             class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Academic
                             Info</button>
+                        <button @click="activeTab = 'participation'; clearPreview()"
+                            :class="activeTab === 'participation' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
+                            class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Participation Details</button>
+                        <button @click="activeTab = 'health'; clearPreview()"
+                            :class="activeTab === 'health' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
+                            class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Health & Emergency</button>
+                        <button @click="activeTab = 'transportation'; clearPreview()"
+                            :class="activeTab === 'transportation' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
+                            class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Transportation</button>
                         <button @click="activeTab = 'documents'; clearPreview()"
                             :class="activeTab === 'documents' ? 'bg-highlight text-primary' : 'text-white/40 hover:bg-white/5'"
                             class="w-full text-left px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all">Documents</button>
@@ -388,30 +397,59 @@ Livewire.on('swal:error', (data) => {
                     <div class="lg:col-span-2">
                         <div x-show="activeTab === 'personal'" class="space-y-8" x-transition>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                @if(!empty($this->selectedRegistration->personal_info['full_name']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Full Name
                                     </p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $this->selectedRegistration->personal_info['full_name'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['full_name'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->personal_info['gender']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Gender
                                     </p>
                                     <p class="text-sm font-bold text-white uppercase">
-                                        {{ $this->selectedRegistration->personal_info['gender'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['gender'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->personal_info['whatsapp']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Phone
                                         Number</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $this->selectedRegistration->personal_info['whatsapp'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['whatsapp'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->personal_info['nationality']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">
                                         Nationality</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $this->selectedRegistration->personal_info['nationality'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->personal_info['nationality'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->personal_info['dob']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Date of Birth</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->personal_info['dob'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->personal_info['passport_id']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Passport ID</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->personal_info['passport_id'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->personal_info['email']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Email</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->personal_info['email'] }}</p>
+                                </div>
+                                @endif
                             </div>
                         </div>
 
@@ -424,22 +462,152 @@ Livewire.on('swal:error', (data) => {
                                         {{ $this->selectedRegistration->academic_info['university_name'] ?? 'N/A' }}
                                     </p>
                                 </div>
+                                @if(!empty($this->selectedRegistration->academic_info['major']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Major</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $this->selectedRegistration->academic_info['major'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['major'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->academic_info['year_semester']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Year of
                                         Study</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $this->selectedRegistration->academic_info['year_semester'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['year_semester'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->academic_info['gpa']))
                                 <div class="space-y-1">
                                     <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">GPA</p>
                                     <p class="text-sm font-bold text-white">
-                                        {{ $this->selectedRegistration->academic_info['gpa'] ?? 'N/A' }}</p>
+                                        {{ $this->selectedRegistration->academic_info['gpa'] }}</p>
                                 </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->academic_info['country']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Country</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->academic_info['country'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->academic_info['student_id']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Student ID</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->academic_info['student_id'] }}</p>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div x-show="activeTab === 'participation'" class="space-y-8" x-transition>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                @if(!empty($this->selectedRegistration->participation_details['motivation']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Motivation</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->participation_details['motivation'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->participation_details['relevant_experience']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Relevant Experience</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        @foreach($this->selectedRegistration->participation_details['relevant_experience'] ?? [] as $exp)
+                                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white">{{ $exp }}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->participation_details['experience_description']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Experience Description</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->participation_details['experience_description'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->advanced_info['expectations']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Expectations</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->advanced_info['expectations'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->advanced_info['cultural_talent']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Cultural Talent</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->advanced_info['cultural_talent'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->advanced_info['video_url']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Video URL</p>
+                                    <a href="{{ $this->selectedRegistration->advanced_info['video_url'] }}" target="_blank" class="text-sm font-bold text-highlight hover:underline">
+                                        {{ $this->selectedRegistration->advanced_info['video_url'] }}
+                                    </a>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div x-show="activeTab === 'health'" class="space-y-8" x-transition>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                @if(!empty($this->selectedRegistration->health_emergency['medical_conditions']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Medical Conditions</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->health_emergency['medical_conditions'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->health_emergency['allergies']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Allergies</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->health_emergency['allergies'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->health_emergency['dietary_preference']))
+                                <div class="space-y-1 md:col-span-2">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Dietary Preferences</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->health_emergency['dietary_preference'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->health_emergency['emergency_contact']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Emergency Contact Name</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->health_emergency['emergency_contact'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->health_emergency['emergency_relationship']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Emergency Relationship</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->health_emergency['emergency_relationship'] }}</p>
+                                </div>
+                                @endif
+                                @if(!empty($this->selectedRegistration->health_emergency['emergency_phone']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Emergency Phone</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->health_emergency['emergency_phone'] }}</p>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div x-show="activeTab === 'transportation'" class="space-y-8" x-transition>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                @if(!empty($this->selectedRegistration->transportation['type']))
+                                <div class="space-y-1">
+                                    <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Transportation Type</p>
+                                    <p class="text-sm font-bold text-white">
+                                        {{ $this->selectedRegistration->transportation['type'] }}</p>
+                                </div>
+                                @endif
                             </div>
                         </div>
 
@@ -475,7 +643,7 @@ Livewire.on('swal:error', (data) => {
                                     <div class="space-y-3">
                                         <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">
                                             {{ str_replace('_', ' ', $doc) }}</p>
-                                        <div @click="setPreview('{{ $url }}', {{ $isPdf ? 'true' : 'false' }})" class="cursor-pointer">
+                                        <div @if(!empty($path)) @click="setPreview('{{ $url }}', {{ $isPdf ? 'true' : 'false' }})" class="cursor-pointer" @else class="opacity-50 cursor-not-allowed" @endif>
                                             <x-document-preview 
                                                 :url="$url" 
                                                 :type="$isPdf ? 'application/pdf' : 'image/jpeg'" 

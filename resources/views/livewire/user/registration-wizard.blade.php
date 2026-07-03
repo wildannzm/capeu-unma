@@ -384,8 +384,36 @@
                     </div>
                 @endif
 
-                <!-- Step 5: Document Upload -->
+                <!-- Step 5: Transportation -->
                 @if ($currentStep == 5)
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">Transportation</h2>
+
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label class="block font-heading font-bold text-sm mb-2 text-white/80">Type of transportation to be used to get to Majalengka University</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 bg-white/5 p-5 rounded-2xl border border-white/10">
+                                    @foreach (['Plane', 'Train', 'Bus', 'Personal Vehicle', 'Other'] as $transport)
+                                        <label class="flex items-center space-x-3 cursor-pointer group">
+                                            <input type="radio"
+                                                name="transportation"
+                                                wire:model.blur="transportation.type"
+                                                value="{{ $transport }}" class="{{ $checkboxClass }}">
+                                            <span
+                                                class="font-sans text-sm text-white/90 group-hover:text-accent transition">{{ $transport }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                                @error('transportation.type')
+                                    <span class="block text-red-400 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                <!-- Step 6: Document Upload -->
+                @if ($currentStep == 6)
                     <div class="space-y-6">
                         <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">Document
                             Uploads</h2>
@@ -455,8 +483,8 @@
                     </div>
                 @endif
 
-                <!-- Step 6: Payment -->
-                @if ($currentStep == 6)
+                <!-- Step 7: Payment -->
+                @if ($currentStep == 7)
                     <div class="space-y-6">
                         <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">Payment
                             Verification</h2>
@@ -571,8 +599,8 @@
                     </div>
                 @endif
 
-                <!-- Step 7: Declaration -->
-                @if ($currentStep == 7)
+                <!-- Step 8: Declaration -->
+                @if ($currentStep == 8)
                     <div class="space-y-6">
                         <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">
                             Declaration</h2>
@@ -599,8 +627,8 @@
                     </div>
                 @endif
 
-                <!-- Step 8: Optional (Advanced) -->
-                @if ($currentStep == 8)
+                <!-- Step 9: Optional (Advanced) -->
+                @if ($currentStep == 9)
                     <div class="space-y-6">
                         <h2 class="text-2xl font-heading font-bold text-accent border-b border-white/10 pb-2">Optional
                             (Advanced)</h2>

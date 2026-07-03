@@ -1,7 +1,7 @@
 <div x-data="{ previewModal: false, previewUrl: '', previewTitle: '', previewType: '' }" class="space-y-10">
     @if ($this->registration)
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div class="lg:col-span-2 space-y-10">
+        <div class="flex flex-col lg:grid lg:grid-cols-3 gap-10">
+            <div class="order-1 lg:col-span-2 space-y-10">
                 {{-- Status Banner --}}
                 <div
                     class="bg-white/5 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-white/10 overflow-hidden relative group">
@@ -132,12 +132,38 @@
                                 @endforeach
                             </div>
                         </div>
+                </div>
+            </div>
+            </div>
+
+            {{-- Sidebar Info --}}
+            <div class="order-3 lg:order-2 space-y-8">
+                <div
+                    class="bg-gradient-to-br from-highlight to-accent p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute -right-10 -top-10 w-40 h-40 bg-white/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700">
+                    </div>
+                    <div class="relative z-10 flex flex-col justify-center">
+                        <h4
+                            class="font-heading font-black text-2xl text-primary mb-3 uppercase leading-none tracking-tighter">
+                            Support Center</h4>
+                        <p class="text-primary/70 text-[11px] font-bold mb-8 uppercase tracking-wider leading-relaxed">
+                            Having trouble with documents or payment? Reach out to our team.</p>
+                        <a href="mailto:support@capeu.unma.ac.id"
+                            class="flex items-center justify-center w-full py-4 bg-primary text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all hover:shadow-xl active:scale-95 outline-none focus:outline-none focus:ring-0">
+                            Contact Us
+                        </a>
                     </div>
                 </div>
-
-                {{-- Action Cards --}}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative">
+            </div>
+        {{-- Action Cards --}}
+        @php
+            $transportType = $this->registration->transportation['type'] ?? null;
+            $showArrival = in_array($transportType, ['Plane', 'Train']);
+        @endphp
+        <div class="order-2 lg:order-3 lg:col-span-3 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 {{ $showArrival ? 'lg:grid-cols-3' : '' }} gap-8 items-start">
+                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
                         <div class="flex items-center justify-between mb-8">
                             <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Payment
                                 Status</h4>
@@ -179,7 +205,7 @@
                     </div>
 
                     <div
-                        class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative">
+                        class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
                         <div class="flex items-center justify-between mb-8">
                             <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">My
                                 Documents</h4>
@@ -261,29 +287,35 @@
                             @endforeach
                         </div>
                     </div>
-                </div>
-            </div>
 
-            {{-- Sidebar Info --}}
-            <div class="space-y-8">
-                <div
-                    class="bg-gradient-to-br from-highlight to-accent p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
-                    <div
-                        class="absolute -right-10 -top-10 w-40 h-40 bg-white/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700">
+                    @if($showArrival)
+                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
+                        <div class="flex items-center justify-between mb-8">
+                            <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Arrival Information</h4>
+                            <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-highlight/30 transition-colors">
+                                <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-highlight/5 border border-highlight/20 rounded-3xl flex items-start gap-4">
+                            <div class="mt-1">
+                                <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-medium text-white/90 leading-relaxed font-sans">
+                                @if($transportType === 'Plane')
+                                    The committee will wait at <span class="font-bold text-highlight">Soekarno-Hatta Airport (CGK)</span> on <span class="font-bold text-white">August 22, 2026, at 2 PM</span> Western Indonesia Time.
+                                @elseif($transportType === 'Train')
+                                    The committee will wait at <span class="font-bold text-highlight">Cirebon Train Station (CN)</span> at <span class="font-bold text-white">August 22, 2026, at 4 PM</span> Western Indonesia Time.
+                                @endif
+                            </p>
+                        </div>
                     </div>
-                    <div class="relative z-10">
-                        <h4
-                            class="font-heading font-black text-2xl text-primary mb-3 uppercase leading-none tracking-tighter">
-                            Support Center</h4>
-                        <p class="text-primary/70 text-[11px] font-bold mb-8 uppercase tracking-wider leading-relaxed">
-                            Having trouble with documents or payment? Reach out to our team.</p>
-                        <a href="mailto:support@capeu.unma.ac.id"
-                            class="flex items-center justify-center w-full py-4 bg-primary text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all hover:shadow-xl active:scale-95 outline-none focus:outline-none focus:ring-0">
-                            Contact Us
-                        </a>
-                    </div>
+                    @endif
                 </div>
-
             </div>
         </div>
     @else

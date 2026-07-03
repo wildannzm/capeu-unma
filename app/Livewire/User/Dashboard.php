@@ -22,7 +22,7 @@ class Dashboard extends Component
     {
         return Auth::user()->registrations()
             ->with(['payments'])
-            ->select(['id', 'user_id', 'registration_number', 'status', 'participant_type', 'passport_path', 'student_card_path', 'formal_photo_path', 'cv_path', 'motivation_letter_path', 'created_at'])
+            ->select(['id', 'user_id', 'registration_number', 'status', 'participant_type', 'transportation', 'passport_path', 'student_card_path', 'formal_photo_path', 'cv_path', 'motivation_letter_path', 'created_at'])
             ->latest()
             ->first();
     }

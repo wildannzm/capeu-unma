@@ -23,6 +23,7 @@ class Registration extends Model
         'academic_info',
         'participation_details',
         'health_emergency',
+        'transportation',
         'declaration',
         'advanced_info',
         'passport_path',
@@ -44,6 +45,7 @@ class Registration extends Model
             'academic_info' => AsArrayObject::class,
             'participation_details' => AsArrayObject::class,
             'health_emergency' => AsArrayObject::class,
+            'transportation' => AsArrayObject::class,
             'declaration' => AsArrayObject::class,
             'advanced_info' => AsArrayObject::class,
         ];

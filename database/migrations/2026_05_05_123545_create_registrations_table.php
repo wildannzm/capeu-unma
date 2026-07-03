@@ -23,6 +23,7 @@ return new class extends Migration
             $table->json('academic_info')->nullable();
             $table->json('participation_details')->nullable();
             $table->json('health_emergency')->nullable();
+            $table->json('transportation')->nullable();
             $table->json('declaration')->nullable();
             $table->json('advanced_info')->nullable();
 

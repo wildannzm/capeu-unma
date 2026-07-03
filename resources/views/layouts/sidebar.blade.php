@@ -24,7 +24,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased bg-primary text-white selection:bg-highlight selection:text-primary">
+<body class="font-sans antialiased bg-primary text-white">
     <!-- Decorative Background Elements -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div
