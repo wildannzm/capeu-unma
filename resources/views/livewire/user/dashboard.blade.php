@@ -149,7 +149,7 @@
                             Support Center</h4>
                         <p class="text-primary/70 text-[11px] font-bold mb-8 uppercase tracking-wider leading-relaxed">
                             Having trouble with documents or payment? Reach out to our team.</p>
-                        <a href="mailto:support@capeu.unma.ac.id"
+                        <a href="https://wa.me/6285624425461" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center w-full py-4 bg-primary text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all hover:shadow-xl active:scale-95 outline-none focus:outline-none focus:ring-0">
                             Contact Us
                         </a>
