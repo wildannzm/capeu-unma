@@ -119,175 +119,139 @@
         </section>
 
         <!-- Section 2: Participants' Benefit -->
-        <section class="py-24 relative border-t border-white/10 bg-[#0139CC]">
-            <!-- Decorative Background Element -->
-            <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div
-                    class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#2A76D8]/20 to-transparent rounded-full mix-blend-screen opacity-50 transform translate-x-1/2 -translate-y-1/2 blur-3xl">
-                </div>
+        <section class="py-24 lg:py-32 relative overflow-hidden bg-[#0139CC]">
+            <!-- Decorative Cloud Background Patterns -->
+            <div class="absolute inset-0 pointer-events-none opacity-50">
+                <div class="absolute -top-[10%] -right-[5%] w-[800px] h-[800px] rounded-[40%] bg-[#2A76D8]/40 blur-3xl transform rotate-12"></div>
+                <div class="absolute top-[20%] -left-[10%] w-[1000px] h-[1000px] rounded-[35%] bg-[#2A76D8]/30 blur-3xl transform -rotate-12"></div>
+                <div class="absolute top-[60%] right-[5%] w-[600px] h-[600px] rounded-[45%] bg-[#2A76D8]/30 blur-3xl transform rotate-45"></div>
+                <div class="absolute -bottom-[10%] -left-[5%] w-[800px] h-[800px] rounded-[40%] bg-[#2A76D8]/40 blur-3xl transform -rotate-6"></div>
             </div>
 
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-                <div class="text-center mb-20 relative">
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white drop-shadow-md">
-                        Participants'</h2>
-                    <div
+            <div class="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl relative z-10">
+                <!-- Top Section -->
+                <div class="flex flex-col items-center justify-center mb-20 md:mb-32 relative">
+                    <h2 class="text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-black text-white drop-shadow-lg z-20 tracking-tight leading-none mb-2 md:mb-4">
+                        Participants'
+                    </h2>
+                    <div class="relative z-30">
+                        <div 
                         class="font-heading font-black text-highlight text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] z-10">
                         Benefit</div>
-                    <div
-                        class="font-heading font-bold text-accent text-2xl md:text-3xl mt-2 tracking-wide drop-shadow-md">
-                        What We Provide..</div>
-                </div>
-
-                <!-- Top Row (3 Items) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-6 lg:mb-8">
-                    <!-- Item 1 -->
-                    <div
-                        class="bg-gradient-to-br from-[#1D60CB] to-[#0139CC] rounded-3xl p-8 relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 group">
-                        <div
-                            class="absolute -top-10 -right-10 w-40 h-40 bg-highlight/10 rounded-full mix-blend-screen group-hover:bg-highlight/20 transition-colors duration-500">
-                        </div>
-                        <div class="mb-4">
-                            <div
-                                class="w-16 h-16 bg-highlight rounded-2xl flex items-center justify-center text-[#0139CC] font-black text-3xl mb-8 shadow-[0_0_15px_rgba(202,255,0,0.4)] transform -rotate-3">
-                                01</div>
-                            <h3
-                                class="font-heading font-black text-2xl md:text-3xl text-white mb-4 tracking-tight leading-tight">
-                                Airport Transportation</h3>
-                            <p class="font-sans text-accent font-medium text-lg leading-relaxed">2x CGK - UNMA Airport
-                                Transportation<br><span class="text-white/80 text-base">(Arrival & Departure)</span></p>
-                        </div>
                     </div>
-
-                    <!-- Item 2 -->
-                    <div
-                        class="bg-gradient-to-br from-[#1D60CB] to-[#0139CC] rounded-3xl p-8 relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 group">
-                        <div
-                            class="absolute -top-10 -right-10 w-40 h-40 bg-highlight/10 rounded-full mix-blend-screen group-hover:bg-highlight/20 transition-colors duration-500">
-                        </div>
-                        <div class="mb-4">
-                            <div
-                                class="w-16 h-16 bg-highlight rounded-2xl flex items-center justify-center text-[#0139CC] font-black text-3xl mb-8 shadow-[0_0_15px_rgba(202,255,0,0.4)] transform rotate-3">
-                                02</div>
-                            <h3
-                                class="font-heading font-black text-2xl md:text-3xl text-white mb-4 tracking-tight leading-tight">
-                                Programme Kit</h3>
-                            <ul class="font-sans text-accent font-medium text-lg leading-relaxed space-y-3">
-                                <li class="flex items-start"><svg class="w-6 h-6 mr-3 text-highlight flex-shrink-0"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg> 1x Programme T-shirt</li>
-                                <li class="flex items-start"><svg class="w-6 h-6 mr-3 text-highlight flex-shrink-0"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg> 1x Lanyard & Tag</li>
-                                <li class="flex items-start"><svg class="w-6 h-6 mr-3 text-highlight flex-shrink-0"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg> 1x Digital Certificate</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div
-                        class="bg-gradient-to-br from-[#1D60CB] to-[#0139CC] rounded-3xl p-8 relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 group">
-                        <div
-                            class="absolute -top-10 -right-10 w-40 h-40 bg-highlight/10 rounded-full mix-blend-screen group-hover:bg-highlight/20 transition-colors duration-500">
-                        </div>
-                        <div class="mb-4">
-                            <div
-                                class="w-16 h-16 bg-highlight rounded-2xl flex items-center justify-center text-[#0139CC] font-black text-3xl mb-8 shadow-[0_0_15px_rgba(202,255,0,0.4)] transform -rotate-3">
-                                03</div>
-                            <h3
-                                class="font-heading font-black text-2xl md:text-3xl text-white mb-3 tracking-tight leading-tight">
-                                UNMA Adventure Park</h3>
-                            <div
-                                class="inline-block px-4 py-1.5 bg-accent/20 rounded-full text-accent text-sm font-bold mb-5 border border-accent/30">
-                                Inclusive In Fee!</div>
-                            <ul class="font-sans text-white font-medium text-lg leading-relaxed grid grid-cols-2 gap-3">
-                                <li class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full bg-highlight mr-3"></div> Ice Breaking
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full bg-highlight mr-3"></div> Abseiling
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full bg-highlight mr-3"></div> High Element
-                                </li>
-                                <li class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full bg-highlight mr-3"></div> Flying Fox
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="font-heading font-black text-accent text-4xl md:text-5xl mt-2 tracking-wide drop-shadow-md"">
+                        What We Provide..
                     </div>
                 </div>
 
-                <!-- Bottom Row (2 Items, Centered) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 lg:w-2/3 mx-auto">
-                    <!-- Item 4 -->
-                    <div
-                        class="bg-gradient-to-br from-[#1D60CB] to-[#0139CC] rounded-3xl p-8 relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 group">
-                        <div
-                            class="absolute -top-10 -right-10 w-40 h-40 bg-highlight/10 rounded-full mix-blend-screen group-hover:bg-highlight/20 transition-colors duration-500">
+                <!-- Items List -->
+                <div class="flex flex-col space-y-20 md:space-y-32">
+                    
+                    <!-- Item 1: Transportation -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-5/12 flex-shrink-0">
+                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/transportation.png') }}" alt="Transportation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <div
-                                class="w-16 h-16 bg-highlight rounded-2xl flex items-center justify-center text-[#0139CC] font-black text-3xl mb-8 shadow-[0_0_15px_rgba(202,255,0,0.4)] transform rotate-3">
-                                04</div>
-                            <h3
-                                class="font-heading font-black text-2xl md:text-3xl text-white mb-3 tracking-tight leading-tight">
-                                Networking Session</h3>
-                            <div
-                                class="inline-block px-4 py-1.5 bg-white/10 rounded-full text-white text-sm font-bold mb-5 border border-white/20">
-                                Laidback & Outdoor</div>
-                            <p class="font-sans text-accent font-medium text-lg leading-relaxed">
-                                Campfire & BBQ Networking<br>Global Buddies Networking Sessions
+                        <div class="w-full md:w-7/12 text-left">
+                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
+                                Transportation</h3>
+                            <p class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-snug drop-shadow-sm">
+                                Airport Soekarno Hatta Airport (CGK) – UNMA Arrival & Departure<br>
+                                Cirebon Station (CN) – UNMA
                             </p>
                         </div>
                     </div>
 
-                    <!-- Item 5 -->
-                    <div
-                        class="bg-gradient-to-br from-[#1D60CB] to-[#0139CC] rounded-3xl p-8 relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 group">
-                        <div
-                            class="absolute -top-10 -right-10 w-40 h-40 bg-highlight/10 rounded-full mix-blend-screen group-hover:bg-highlight/20 transition-colors duration-500">
+                    <!-- Item 2: Programme Kit -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-5/12 flex-shrink-0">
+                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group bg-white/5">
+                                <img src="{{ asset('assets/images/vest.png') }}" alt="Programme Kit" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <div
-                                class="w-16 h-16 bg-highlight rounded-2xl flex items-center justify-center text-[#0139CC] font-black text-3xl mb-8 shadow-[0_0_15px_rgba(202,255,0,0.4)] transform -rotate-3">
-                                05</div>
-                            <h3
-                                class="font-heading font-black text-2xl md:text-3xl text-white mb-3 tracking-tight leading-tight">
-                                White Water Rafting</h3>
-                            <div
-                                class="inline-block px-4 py-1.5 bg-accent/20 rounded-full text-accent text-sm font-bold mb-5 border border-accent/30">
-                                Once In a Lifetime Experience!</div>
-                            <ul
-                                class="font-sans text-white font-medium text-lg leading-relaxed flex flex-col space-y-3">
-                                <li class="flex items-center"><svg class="w-6 h-6 mr-3 text-highlight flex-shrink-0"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg> Insurance Covered</li>
-                                <li class="flex items-center"><svg class="w-6 h-6 mr-3 text-highlight flex-shrink-0"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg> 3x Meals per Day</li>
+                        <div class="w-full md:w-7/12 text-left md:text-right">
+                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
+                                Programme Kit</h3>
+                            <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                                <li>1x Programme T-shirt</li>
+                                <li>1x Programme Lanyard with Participants' Tag</li>
+                                <li>1x Digital Mobility Programme Certificate</li>
                             </ul>
                         </div>
                     </div>
+
+                    <!-- Item 3: Adventure Activities -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-5/12 flex-shrink-0">
+                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/adventure.png') }}" alt="Adventure Activities" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-7/12 text-left">
+                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
+                                Adventure Activities</h3>
+                            <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
+                                Inclusive In Participation Fee!</div>
+                            <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                                <li>– Exploring Pakuwon Bantaragung</li>
+                                <li>– Exploration of the Terasering panyaweuyan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Networking Session -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                        <div class="w-full md:w-5/12 flex-shrink-0">
+                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/networking.png') }}" alt="Networking Session" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-7/12 text-left md:text-right">
+                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
+                                Networking Session</h3>
+                            <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
+                                But We Make It Laidback & Outdoor</div>
+                            <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                                <li>Campire & BBQ Networking</li>
+                                <li>Global Buddies Networking Sessions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Hiking -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 relative">
+                        <div class="w-full md:w-5/12 flex-shrink-0 relative z-20">
+                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/hiking.png') }}" alt="Hiking" class="absolute inset-0 w-full h-full object-cover scale-[1.25] md:scale-[1.3] transition-transform duration-700 group-hover:scale-[1.35] md:group-hover:scale-[1.4]">
+                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-7/12 text-left relative z-20">
+                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
+                                Hiking</h3>
+                            <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
+                                Once In a Lifetime Experience!</div>
+                            <p class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm">
+                                Hiking from Sampora Hill to<br>Ciranca Lake
+                            </p>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- And Many More!! (Both Mobile & Desktop) -->
+                    <div class="flex justify-end mt-12 md:mt-24 lg:mt-32 w-full relative z-10 lg:pr-12">
+                        <h3 class="font-heading italic font-black text-[4rem] md:text-[6rem] lg:text-[8rem] text-white transform -rotate-6 text-right leading-none pb-8" style="filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.5));">
+                            And Many<br>More!!
+                        </h3>
+                    </div>
                 </div>
 
-                <div class="text-center mt-20">
-                    <h3
-                        class="font-heading font-black text-5xl md:text-6xl text-white drop-shadow-md transform rotate-2">
-                        And Many More!</h3>
-                </div>
             </div>
         </section>
 
@@ -304,7 +268,83 @@
                         Awaits!</div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-24 pb-12">
+                <!-- Photo Collage -->
+                <div class="relative w-full max-w-7xl mx-auto mb-20 mt-12 hidden md:block px-4 lg:px-8">
+                    <div class="grid grid-cols-4 gap-6 lg:gap-12 relative z-10">
+                        <!-- Photo 1 -->
+                        <div class="transform -rotate-[6deg] hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out mt-4">
+                            <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
+                                <img src="{{ asset('assets/images/activities-1.png') }}" alt="Activity 1" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                            </div>
+                        </div>
+                        <!-- Photo 2 -->
+                        <div class="transform rotate-[4deg] translate-y-4 lg:translate-y-8 hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out">
+                            <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
+                                <img src="{{ asset('assets/images/activities-2.png') }}" alt="Activity 2" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                            </div>
+                        </div>
+                        <!-- Photo 3 -->
+                        <div class="transform -rotate-[3deg] hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out mt-2">
+                            <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
+                                <img src="{{ asset('assets/images/activities-3.png') }}" alt="Activity 3" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                            </div>
+                        </div>
+                        <!-- Photo 4 -->
+                        <div class="transform rotate-[5deg] translate-y-3 lg:translate-y-6 hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out">
+                            <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
+                                <img src="{{ asset('assets/images/activities-4.png') }}" alt="Activity 4" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .hide-scrollbar::-webkit-scrollbar { display: none; }
+                    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+                </style>
+
+                <!-- Mobile version of Photo Collage -->
+                <div x-data="{
+                        init() {
+                            let slider = this.$refs.slider;
+                            setInterval(() => {
+                                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 20) {
+                                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                                } else {
+                                    slider.scrollBy({ left: 284, behavior: 'smooth' });
+                                }
+                            }, 3000);
+                        }
+                    }" 
+                    x-ref="slider"
+                    class="flex md:hidden overflow-x-auto gap-6 pb-12 px-6 snap-x snap-mandatory relative z-10 -mx-4 hide-scrollbar pt-6 mb-8">
+                     <!-- Photo 1 -->
+                    <div class="min-w-[260px] snap-center transform -rotate-3">
+                        <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
+                            <img src="{{ asset('assets/images/activities-1.png') }}" alt="Activity 1" class="w-full h-56 object-cover rounded-xl">
+                        </div>
+                    </div>
+                    <!-- Photo 2 -->
+                    <div class="min-w-[260px] snap-center transform rotate-2 mt-6">
+                        <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
+                            <img src="{{ asset('assets/images/activities-2.png') }}" alt="Activity 2" class="w-full h-56 object-cover rounded-xl">
+                        </div>
+                    </div>
+                    <!-- Photo 3 -->
+                    <div class="min-w-[260px] snap-center transform -rotate-2">
+                        <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
+                            <img src="{{ asset('assets/images/activities-3.png') }}" alt="Activity 3" class="w-full h-56 object-cover rounded-xl">
+                        </div>
+                    </div>
+                    <!-- Photo 4 -->
+                    <div class="min-w-[260px] snap-center transform rotate-3 mt-4">
+                        <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
+                            <img src="{{ asset('assets/images/activities-4.png') }}" alt="Activity 4" class="w-full h-56 object-cover rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mt-12 md:mt-24 pb-12">
                     <!-- Day 1 -->
                     <div
                         class="relative bg-gradient-to-b from-[#1D60CB] to-[#0139CC] rounded-[2rem] p-8 pt-12 shadow-2xl border border-white/10 hover:-translate-y-3 transition-transform duration-300 group">
@@ -312,7 +352,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">23</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">Aug</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -332,7 +372,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">24</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">Aug</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -341,7 +381,7 @@
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
                                 <span>Opening of Activities</span>
-                                <span>Outdoor Activities with ASPIRE</span>
+                                <span>Campground Exploration</span>
                             </div>
                         </div>
                     </div>
@@ -353,7 +393,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">25</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">Aug</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -361,7 +401,7 @@
                                 Day 3</h3>
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
-                                <span>Outdoor Activities with ASPIRE</span>
+                                <span>Exploring Pakuwon Bantaragung</span>
                             </div>
                         </div>
                     </div>
@@ -373,7 +413,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">26</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">Aug</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -381,7 +421,7 @@
                                 Day 4</h3>
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
-                                <span>Outdoor Activities with ASPIRE</span>
+                                <span>Eksplorasi Terasering panyaweuyan</span>
                             </div>
                         </div>
                     </div>
@@ -393,15 +433,16 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">27</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">Aug</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
                                 class="font-heading font-black text-white text-4xl mb-4 drop-shadow-md group-hover:scale-110 transition-transform duration-500 uppercase tracking-widest">
                                 Day 5</h3>
                             <div
-                                class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
-                                <span>Outdoor Activities with ASPIRE</span>
+                                class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
+                                <span>Hiking from Sampora Hill to Ciranca Lake</span>
+                                <span>Educational Visit to Brazil Wine Agrotourism</span>
                             </div>
                         </div>
                     </div>
@@ -413,7 +454,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">28</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">Aug</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -421,8 +462,8 @@
                                 Day 6</h3>
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
-                                <span>Closing of the Event</span>
-                                <span>& Sending Participants Home</span>
+                                <span>Closing of The Event</span>
+                                <span>and Sending Participants Home</span>
                             </div>
                         </div>
                     </div>
@@ -436,14 +477,14 @@
         <div
             class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div class="flex items-center space-x-6">
-                <a href="#"
+                <a href="https://www.instagram.com/univmajalengka" target="_blank" rel="noopener noreferrer"
                     class="text-white/80 hover:text-highlight transition font-sans text-sm flex items-center gap-2">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd"
                             d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
                             clip-rule="evenodd" />
                     </svg>
-                    <span>@capeu.unma</span>
+                    <span>@univmajalengka</span>
                 </a>
             </div>
             <div class="text-white/80 font-sans text-sm">
