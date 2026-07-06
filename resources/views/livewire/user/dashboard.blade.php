@@ -307,9 +307,9 @@
                             </div>
                             <p class="text-sm font-medium text-white/90 leading-relaxed font-sans">
                                 @if($transportType === 'Plane')
-                                    The committee will wait at <span class="font-bold text-highlight">Soekarno-Hatta Airport (CGK)</span> on <span class="font-bold text-white">August 22, 2026, at 2 PM</span> Western Indonesia Time.
+                                    The committee will wait at <span class="font-bold text-highlight">Soekarno-Hatta Airport (CGK)</span> on <span class="font-bold text-white">August 23, 2026, at 2 PM</span> Western Indonesia Time.
                                 @elseif($transportType === 'Train')
-                                    The committee will wait at <span class="font-bold text-highlight">Cirebon Train Station (CN)</span> at <span class="font-bold text-white">August 22, 2026, at 4 PM</span> Western Indonesia Time.
+                                    The committee will wait at <span class="font-bold text-highlight">Cirebon Train Station (CN)</span> at <span class="font-bold text-white">August 23, 2026, at 4 PM</span> Western Indonesia Time.
                                 @endif
                             </p>
                         </div>

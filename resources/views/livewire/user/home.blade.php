@@ -199,7 +199,7 @@
                                 Inclusive In Participation Fee!</div>
                             <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
                                 <li>– Exploring Pakuwon Bantaragung</li>
-                                <li>– Exploration of the Terasering panyaweuyan</li>
+                                <li>– Exploration of the Terasering Panyaweuyan</li>
                             </ul>
                         </div>
                     </div>
@@ -421,7 +421,7 @@
                                 Day 4</h3>
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
-                                <span>Eksplorasi Terasering panyaweuyan</span>
+                                <span>Eksplorasi Terasering Panyaweuyan</span>
                             </div>
                         </div>
                     </div>
