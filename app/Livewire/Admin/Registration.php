@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Admin;
 
+use App\Exports\RegistrationsExport;
 use App\Models\Registration as RegistrationModel;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 #[Layout('layouts.sidebar', ['header' => 'Manage Registrations'])]
 #[Title('Registrations - CAPEU 2026')]
@@ -91,5 +93,13 @@ class Registration extends Component
         return view('livewire.admin.registration', [
             'registrations' => $registrations,
         ]);
+    }
+
+    public function downloadExcel()
+    {
+        return Excel::download(
+            new RegistrationsExport($this->search, $this->statusFilter),
+            'Registrations CAPEU UNMA 2026.xlsx'
+        );
     }
 }

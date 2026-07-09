@@ -116,6 +116,10 @@ Livewire.on('swal:error', (data) => {
                     <option value="accepted" class="bg-primary">Accepted</option>
                     <option value="rejected" class="bg-primary">Rejected</option>
                 </select>
+                <button type="button" wire:click="downloadExcel" class="px-6 py-4 bg-green-500/10 text-green-400 border border-green-500/20 rounded-2xl text-sm font-black uppercase tracking-widest hover:bg-green-500 hover:text-white transition-all flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Export Excel
+                </button>
             </div>
         </div>
     </div>
@@ -127,6 +131,7 @@ Livewire.on('swal:error', (data) => {
                 <thead>
                     <tr class="border-b border-white/5">
                         <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">#</th>
+                        <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Reg. No</th>
                         <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Participant</th>
                         <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Status</th>
                         <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Date</th>
@@ -141,6 +146,11 @@ Livewire.on('swal:error', (data) => {
                             <td class="p-8">
                                 <span class="text-sm font-black text-white/40">
                                     {{ $registrations->firstItem() + $index }}
+                                </span>
+                            </td>
+                            <td class="p-8">
+                                <span class="text-[10px] font-bold text-white/80 uppercase tracking-wider">
+                                    {{ $reg->registration_number }}
                                 </span>
                             </td>
                             <td class="p-8">
@@ -235,7 +245,7 @@ Livewire.on('swal:error', (data) => {
                 <div class="p-8 space-y-6" wire:key="reg-mobile-{{ $reg->id }}-{{ $reg->status }}">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-black text-white/20 uppercase tracking-widest">
-                            #{{ $registrations->firstItem() + $index }}
+                            #{{ $registrations->firstItem() + $index }} - {{ $reg->registration_number }}
                         </span>
                         @php
                             $statusColor = match ($reg->status) {
@@ -695,6 +705,16 @@ Livewire.on('swal:error', (data) => {
                                             <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Status
                                             </p>
                                             <p class="text-sm font-bold text-highlight uppercase">{{ $payment->status }}</p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Participant Type
+                                            </p>
+                                            @php
+                                                $type = $this->selectedRegistration->participant_type;
+                                                $isMember = !str_contains(strtolower($type), 'non');
+                                                $typeLabel = $isMember ? 'MEMBER' : 'NON-MEMBER';
+                                            @endphp
+                                            <p class="text-sm font-bold text-white uppercase">{{ $typeLabel }}</p>
                                         </div>
                                     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Payment as PaymentModel;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -31,13 +32,13 @@ class Payment extends Component
     public function updateStatus(int $id, string $status)
     {
         $payment = PaymentModel::findOrFail($id);
-        
+
         $updateData = ['status' => $status];
-        
+
         if ($status === 'verified') {
-            $updateData['verified_by'] = auth()->id();
+            $updateData['verified_by'] = Auth::id();
             $updateData['verified_at'] = now();
-            
+
             // Also update the associated registration status if needed
             $payment->registration->update(['status' => 'payment_verified']);
         }

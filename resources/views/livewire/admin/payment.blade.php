@@ -134,8 +134,10 @@
                     <thead>
                         <tr class="border-b border-white/5">
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">#</th>
+                            <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Reg. No</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Participant
                             </th>
+                            <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Participant Type</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Amount</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Method</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Status</th>
@@ -154,15 +156,30 @@
                                     </span>
                                 </td>
                                 <td class="p-8">
+                                    <span class="text-[10px] font-bold text-white/80 uppercase tracking-wider">
+                                        {{ $payment->registration->registration_number }}
+                                    </span>
+                                </td>
+                                <td class="p-8">
                                     <div class="flex items-center">
                                         <div>
                                             <p
                                                 class="text-sm font-black text-white group-hover:text-highlight transition-colors">
                                                 {{ $payment->registration->user->name }}</p>
                                             <p class="text-[9px] text-white/40 uppercase tracking-widest">
-                                                {{ $payment->registration->registration_number }}</p>
+                                                {{ $payment->registration->user->email }}</p>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="p-8">
+                                    @php
+                                        $type = $payment->registration->participant_type;
+                                        $isMember = !str_contains(strtolower($type), 'non');
+                                        $typeLabel = $isMember ? 'MEMBER' : 'NON-MEMBER';
+                                    @endphp
+                                    <span class="text-[10px] font-bold text-white/80 uppercase tracking-wider">
+                                        {{ $typeLabel }}
+                                    </span>
                                 </td>
                                 <td class="p-8">
                                     <p class="text-sm font-black text-white">{{ $payment->currency }}
@@ -267,7 +284,7 @@
                     <div class="p-8 space-y-6" wire:key="payment-mobile-{{ $payment->id }}-{{ $payment->status }}">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-black text-white/20 uppercase tracking-widest">
-                                #{{ $payments->firstItem() + $index }}
+                                #{{ $payments->firstItem() + $index }} - {{ $payment->registration->registration_number }}
                             </span>
                             @php
                                 $statusColor = match ($payment->status) {
