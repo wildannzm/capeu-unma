@@ -12,8 +12,8 @@ use App\Livewire\User\RegistrationWizard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
-Route::get('/login', Login::class)->name('login');
-Route::get('/register', RegistrationWizard::class)->name('register')->middleware('throttle:registration');
+Route::get('/login', Login::class)->name('login')->middleware('guest');
+Route::get('/register', RegistrationWizard::class)->name('register')->middleware(['guest', 'throttle:registration']);
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session')])->group(function () {
     Route::get('/documents/{registration}/{field}', [DocumentController::class, 'show'])->name('documents.show');

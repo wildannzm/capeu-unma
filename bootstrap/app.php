@@ -36,6 +36,13 @@ return Application::configure(basePath: dirname(__DIR__))
             '104.21.32.247',
             '172.67.157.14',
         ]);
+        $middleware->redirectUsersTo(function (\Illuminate\Http\Request $request) {
+            if ($request->user() && $request->user()->hasRole('admin')) {
+                return route('admin.dashboard');
+            }
+
+            return route('dashboard');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

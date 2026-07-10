@@ -361,6 +361,8 @@
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
                                 <span>CAPEU Participant Pick-up</span>
+                                <span class="text-sm font-medium mt-1 block">- Soekarno-Hatta Airport</span>
+                                <span class="text-sm font-medium block">- Cirebon Railway Station</span>
                             </div>
                         </div>
                     </div>
@@ -381,7 +383,7 @@
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
                                 <span>Opening of Activities</span>
-                                <span>Campground Exploration</span>
+                                <span>Campground Exploration Buper Situ Ciranca</span>
                             </div>
                         </div>
                     </div>
@@ -400,8 +402,10 @@
                                 class="font-heading font-black text-white text-4xl mb-4 drop-shadow-md group-hover:scale-110 transition-transform duration-500 uppercase tracking-widest">
                                 Day 3</h3>
                             <div
-                                class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
-                                <span>Exploring Pakuwon Bantaragung</span>
+                                class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
+                                <span>Agritourism Anggur Brazil</span>
+                                <span>Situ Cipanten Exploration</span>
+                                <span>Hiking Expedition Bukit Sampora</span>
                             </div>
                         </div>
                     </div>
@@ -420,8 +424,9 @@
                                 class="font-heading font-black text-white text-4xl mb-4 drop-shadow-md group-hover:scale-110 transition-transform duration-500 uppercase tracking-widest">
                                 Day 4</h3>
                             <div
-                                class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center">
-                                <span>Eksplorasi Terasering Panyaweuyan</span>
+                                class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
+                                <span>Cikadongdong River Tubing</span>
+                                <span>Pasar Bumi Pakuwon Exploration</span>
                             </div>
                         </div>
                     </div>
@@ -441,8 +446,7 @@
                                 Day 5</h3>
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
-                                <span>Hiking from Sampora Hill to Ciranca Lake</span>
-                                <span>Educational Visit to Brazil Wine Agrotourism</span>
+                                <span>Junior High School 3 Majalengka</span>
                             </div>
                         </div>
                     </div>
@@ -462,7 +466,7 @@
                                 Day 6</h3>
                             <div
                                 class="font-sans font-bold text-accent text-lg leading-relaxed flex-grow flex flex-col items-center justify-center space-y-1">
-                                <span>Closing of The Event</span>
+                                <span>Closing The Event</span>
                                 <span>and Sending Participants Home</span>
                             </div>
                         </div>
