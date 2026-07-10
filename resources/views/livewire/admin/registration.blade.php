@@ -23,6 +23,31 @@
                 $wire.updateStatus(id, status);
             }
         })
+    },
+    confirmDelete(id, title, text) {
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: 'error',
+            iconColor: '#ef4444',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            confirmButtonColor: '#ef4444',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            background: '#0139CC',
+            color: '#ffffff',
+            padding: '4rem',
+            customClass: {
+                popup: 'rounded-[3.5rem] border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]',
+                confirmButton: '!text-white font-black !px-8 !py-3 !rounded-xl',
+                cancelButton: 'text-white/60 font-bold !px-8 !py-3 !rounded-xl'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $wire.deleteRegistration(id);
+            }
+        })
     }
 }" x-init="Livewire.on('swal:success', (data) => {
     Swal.fire({
@@ -215,6 +240,13 @@ Livewire.on('swal:error', (data) => {
                                             </svg>
                                         </button>
                                     @endif
+                                    <button @click="confirmDelete({{ $reg->id }}, 'Delete Registration?', 'Are you sure you want to delete this registration? This action will also delete all associated files and cannot be undone.')"
+                                        class="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white hover:scale-110 active:scale-95 transition-all outline-none focus:outline-none"
+                                        title="Delete Registration">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -298,6 +330,13 @@ Livewire.on('swal:error', (data) => {
                                 View Details
                             </button>
                         @endif
+                        <button @click="confirmDelete({{ $reg->id }}, 'Delete Registration?', 'Are you sure you want to delete this registration? This action will also delete all associated files and cannot be undone.')"
+                            class="px-5 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center outline-none focus:outline-none"
+                            title="Delete Registration">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             @empty

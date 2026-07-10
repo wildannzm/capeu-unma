@@ -207,84 +207,60 @@
                     <div
                         class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
                         <div class="flex items-center justify-between mb-8">
-                            <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">My
-                                Documents</h4>
+                            <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Information</h4>
                             <div
                                 class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-highlight/30 transition-colors">
                                 <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                         </div>
                         <div class="space-y-4">
-                            @php
-                                $docs = [
-                                    [
-                                        'key' => 'passport',
-                                        'label' => 'Passport',
-                                        'path' => $this->registration->passport_path,
-                                        'icon' =>
-                                            'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
-                                    ],
-                                    [
-                                        'key' => 'student_card',
-                                        'label' => 'Student Card',
-                                        'path' => $this->registration->student_card_path,
-                                        'icon' =>
-                                            'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14',
-                                    ],
-                                    [
-                                        'key' => 'formal_photo',
-                                        'label' => 'Formal Photo',
-                                        'path' => $this->registration->formal_photo_path,
-                                        'icon' =>
-                                            'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
-                                    ],
-                                ];
-                            @endphp
-
-                            @foreach ($docs as $doc)
-                                @if ($doc['path'])
-                                    @php
-                                        $viewRoute = route('documents.show', [
-                                            'registration' => $this->registration->id,
-                                            'field' => $doc['key'],
-                                        ]);
-                                    @endphp
-                                    <div
-                                        class="flex items-center justify-between p-4 border border-white/5 bg-white/[0.03] rounded-2xl hover:bg-white/[0.06] transition-[background-color,border-color] duration-300 group/item overflow-hidden">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mr-4 border border-white/10 group-hover/item:border-highlight/30 transition-colors duration-300">
-                                                <svg class="w-4 h-4 text-white/40 group-hover/item:text-highlight transition-colors duration-300" fill="none"
-                                                    stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="{{ $doc['icon'] }}" />
-                                                </svg>
-                                            </div>
-                                            <span
-                                                class="text-xs font-black uppercase tracking-widest text-white/70 group-hover/item:text-white transition-colors duration-300">{{ $doc['label'] }}</span>
-                                        </div>
-                                        <div class="flex items-center space-x-1">
-                                            <button
-                                                @click="previewModal = true; previewUrl = '{{ $viewRoute }}'; previewTitle = '{{ $doc['label'] }}'; previewType = '{{ str_ends_with($doc['path'], '.pdf') ? 'pdf' : 'image' }}'"
-                                                class="p-3 text-white/20 hover:text-highlight transition-colors duration-300 outline-none focus:outline-none" title="Preview Document">
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                            </button>
-
-                                        </div>
+                            <div class="bg-highlight/10 border border-highlight/20 rounded-2xl p-4 flex flex-col gap-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 shrink-0 bg-highlight rounded-xl flex items-center justify-center mt-0.5">
+                                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
                                     </div>
-                                @endif
-                            @endforeach
+                                    <div>
+                                        <h5 class="text-sm md:text-base font-black uppercase text-highlight tracking-widest mb-2">Important Information</h5>
+                                        <p class="text-sm md:text-base text-white leading-relaxed font-bold">
+                                            Participants are required to bring a <strong class="text-highlight bg-highlight/10 px-2 py-0.5 rounded border border-highlight/20">tumbler</strong> and <strong class="text-highlight bg-highlight/10 px-2 py-0.5 rounded border border-highlight/20">typical ingredients</strong> of their country for the cooking night.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 border border-white/5 bg-white/[0.03] rounded-2xl hover:bg-white/[0.06] transition-[background-color,border-color] duration-300 group/item overflow-hidden">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mr-4 border border-white/10 group-hover/item:border-highlight/30 transition-colors duration-300">
+                                        <svg class="w-4 h-4 text-white/40 group-hover/item:text-highlight transition-colors duration-300" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                    </div>
+                                    <span
+                                        class="text-xs font-black uppercase tracking-widest text-white/70 group-hover/item:text-white transition-colors duration-300">Event Rundown</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <button @click="previewModal = true; previewUrl = '{{ asset('assets/documents/Rundown Capeu International Student-UNMA 2026.pdf') }}'; previewTitle = 'Event Rundown'; previewType = 'pdf'"
+                                        class="p-3 text-white/20 hover:text-highlight transition-colors duration-300 outline-none focus:outline-none" title="Preview Document">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 

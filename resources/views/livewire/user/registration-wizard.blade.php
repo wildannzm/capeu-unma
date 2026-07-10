@@ -530,9 +530,9 @@
                                     <div class="space-y-1" x-data="{ copied: false }">
                                         <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Account Number</p>
                                         <div class="flex items-center gap-2">
-                                            <p class="text-sm font-bold text-white tracking-widest">2014201823</p>
+                                            <p class="text-sm font-bold text-white tracking-widest">2014201890</p>
                                             <button type="button" 
-                                                @click="navigator.clipboard.writeText('2014201823'); copied = true; setTimeout(() => copied = false, 2000)"
+                                                @click="navigator.clipboard.writeText('2014201890'); copied = true; setTimeout(() => copied = false, 2000)"
                                                 class="text-highlight hover:text-accent transition-colors outline-none focus:outline-none"
                                                 title="Copy Account Number">
                                                 <svg x-show="!copied" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">

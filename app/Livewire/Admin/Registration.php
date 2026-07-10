@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use App\Exports\RegistrationsExport;
 use App\Models\Registration as RegistrationModel;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -72,6 +73,41 @@ class Registration extends Component
         $this->showDetailModal = false;
         $this->selectedRegistrationId = null;
         unset($this->selectedRegistration);
+    }
+
+    public function deleteRegistration(int $id)
+    {
+        $registration = RegistrationModel::with('payments')->findOrFail($id);
+
+        $paths = [
+            $registration->passport_path,
+            $registration->student_card_path,
+            $registration->formal_photo_path,
+            $registration->cv_path,
+            $registration->motivation_letter_path,
+        ];
+
+        foreach ($registration->payments as $payment) {
+            $paths[] = $payment->payment_proof_path;
+        }
+
+        foreach (array_filter($paths) as $path) {
+            if (Storage::disk('local')->exists($path)) {
+                Storage::disk('local')->delete($path);
+            }
+        }
+
+        /** @disregard */
+        $registration->delete();
+
+        if ($this->selectedRegistrationId === $id) {
+            $this->closeModal();
+        }
+
+        $this->dispatch('notify', [
+            'type' => 'success',
+            'message' => 'Registration deleted successfully.',
+        ]);
     }
 
     public function render()
