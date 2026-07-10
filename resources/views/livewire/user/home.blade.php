@@ -176,8 +176,8 @@
                         <div class="w-full md:w-7/12 text-left md:text-right">
                             <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
                                 Programme Kit</h3>
-                            <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
-                                <li>1x Programme T-shirt</li>
+                            <ul class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                                <li>1x Programme Vest, T-Shirt, Boonie Hat</li>
                                 <li>1x Programme Lanyard with Participants' Tag</li>
                                 <li>1x Digital Mobility Programme Certificate</li>
                             </ul>
@@ -197,9 +197,10 @@
                                 Adventure Activities</h3>
                             <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
                                 Inclusive In Participation Fee!</div>
-                            <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
-                                <li>– Exploring Pakuwon Bantaragung</li>
-                                <li>– Exploration of the Terasering Panyaweuyan</li>
+                            <ul class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                                <li>- Exploring Pasar Bumi Pakuwon</li>
+                                <li>- Cikadongdong River Tubing</li>
+                                <li>- Exploration Situ Cipanten</li>
                             </ul>
                         </div>
                     </div>
@@ -217,7 +218,7 @@
                                 Networking Session</h3>
                             <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
                                 But We Make It Laidback & Outdoor</div>
-                            <ul class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                            <ul class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
                                 <li>Campire & BBQ Networking</li>
                                 <li>Global Buddies Networking Sessions</li>
                             </ul>
@@ -237,7 +238,7 @@
                                 Hiking</h3>
                             <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
                                 Once In a Lifetime Experience!</div>
-                            <p class="font-sans text-white font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm">
+                            <p class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm">
                                 Hiking from Sampora Hill to<br>Ciranca Lake
                             </p>
                         </div>
