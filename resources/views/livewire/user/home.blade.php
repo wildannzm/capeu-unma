@@ -352,7 +352,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">23</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">aug</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -374,7 +374,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">24</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">aug</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -395,7 +395,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">25</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">aug</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -417,7 +417,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">26</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">aug</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -438,7 +438,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">27</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">aug</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
@@ -458,7 +458,7 @@
                             class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-highlight to-accent w-20 h-20 rounded-[1.25rem] flex flex-col items-center justify-center shadow-xl shadow-highlight/20 group-hover:-rotate-6 transition-transform duration-500 border-2 border-[#1D60CB] z-10">
                             <span class="font-black font-heading text-primary text-3xl leading-none mt-1">28</span>
                             <span
-                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">agt</span>
+                                class="font-bold font-sans text-primary text-[10px] uppercase tracking-widest mt-0.5">aug</span>
                         </div>
                         <div class="text-center h-full flex flex-col pt-4">
                             <h3
