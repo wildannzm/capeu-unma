@@ -660,46 +660,77 @@
                     </div>
                 @endif
 
-                <!-- Navigation Buttons -->
-                <div class="mt-10 flex justify-between items-center pt-6 border-t border-white/10">
-                    @if ($currentStep > 1)
-                        <button type="button" wire:click="previousStep"
-                            class="font-heading font-bold text-white px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7"></path>
-                            </svg>
-                            Back
-                        </button>
-                    @else
-                        <div></div>
-                    @endif
+                <!-- Step 10: WhatsApp Group -->
+                @if ($currentStep == 10)
+                    <div class="space-y-6 text-center">
+                        <h2 class="text-3xl font-heading font-black text-accent mb-4">You're Almost There!</h2>
+                        <p class="text-lg text-white/90">Please join our WhatsApp group for updates and communication regarding the program.</p>
+                        
+                        <div class="bg-white p-6 rounded-2xl inline-block mt-4 mb-6 shadow-xl">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ urlencode('https://chat.whatsapp.com/KoEn9j1zuvdBaP8VMADHaO?mode=gi_t') }}" alt="WhatsApp Group QR Code" class="w-48 h-48 mx-auto">
+                        </div>
 
-                    @if ($currentStep < $totalSteps)
-                        <button type="button" wire:click="nextStep"
-                            class="font-heading font-bold text-primary bg-accent hover:bg-highlight px-8 py-3 rounded-full transition shadow-lg shadow-highlight/20 flex items-center gap-2"
-                            wire:loading.attr="disabled"
-                            wire:target="passport_path, student_card_path, formal_photo_path, proof_of_payment_path, cv_path, motivation_letter_path">
-                            Next Step
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    @else
-                        <button type="submit"
-                            class="font-heading font-black text-primary bg-highlight hover:bg-accent px-8 py-3 rounded-full transition shadow-[0_0_15px_rgba(202,255,0,0.4)] flex items-center gap-2 text-lg"
-                            wire:loading.attr="disabled">
-                            <span wire:loading.remove wire:target="submit">Submit Registration</span>
-                            <span wire:loading wire:target="submit">Processing...</span>
-                            <svg wire:loading.remove wire:target="submit" class="w-5 h-5" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="mb-8">
+                            <a href="https://chat.whatsapp.com/KoEn9j1zuvdBaP8VMADHaO?mode=gi_t" target="_blank" class="text-highlight hover:text-accent font-bold text-xl underline break-all">
+                                Join Whatsapp Group
+                            </a>
+                        </div>
+                    </div>
+                @endif
+
+                <!-- Navigation Buttons -->
+                @if ($currentStep < 10)
+                    <div class="mt-10 flex justify-between items-center pt-6 border-t border-white/10">
+                        @if ($currentStep > 1)
+                            <button type="button" wire:click="previousStep"
+                                class="font-heading font-bold text-white px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                Back
+                            </button>
+                        @else
+                            <div></div>
+                        @endif
+
+                        @if ($currentStep < 9)
+                            <button type="button" wire:click="nextStep"
+                                class="font-heading font-bold text-primary bg-accent hover:bg-highlight px-8 py-3 rounded-full transition shadow-lg shadow-highlight/20 flex items-center gap-2"
+                                wire:loading.attr="disabled"
+                                wire:target="passport_path, student_card_path, formal_photo_path, proof_of_payment_path, cv_path, motivation_letter_path">
+                                Next Step
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        @else
+                            <button type="submit"
+                                class="font-heading font-black text-primary bg-highlight hover:bg-accent px-8 py-3 rounded-full transition shadow-[0_0_15px_rgba(202,255,0,0.4)] flex items-center gap-2 text-lg"
+                                wire:loading.attr="disabled">
+                                <span wire:loading.remove wire:target="submit">Submit Registration</span>
+                                <span wire:loading wire:target="submit">Processing...</span>
+                                <svg wire:loading.remove wire:target="submit" class="w-5 h-5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </button>
+                        @endif
+                    </div>
+                @else
+                    <div class="mt-10 flex justify-center pt-6 border-t border-white/10">
+                        <button type="button" wire:click="finishRegistration"
+                            class="font-heading font-black text-primary bg-accent hover:bg-highlight px-8 py-4 rounded-full transition shadow-lg shadow-highlight/20 flex items-center gap-2 text-xl">
+                            I've joined the group
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
                         </button>
-                    @endif
-                </div>
+                    </div>
+                @endif
 
             </form>
         </div>

@@ -20,7 +20,7 @@ class RegistrationWizard extends Component
 
     public $currentStep = 1;
 
-    public $totalSteps = 9;
+    public $totalSteps = 10;
 
     // Native Columns
     public $participant_type = '';
@@ -273,7 +273,7 @@ class RegistrationWizard extends Component
                 'text' => 'Your account has been created and your application submitted.',
             ]);
 
-            return redirect()->route('dashboard');
+            $this->currentStep = 10;
         } catch (\Exception $e) {
             $this->dispatch('swal:alert', [
                 'type' => 'error',
@@ -282,6 +282,11 @@ class RegistrationWizard extends Component
             ]);
             return;
         }
+    }
+
+    public function finishRegistration()
+    {
+        return redirect()->route('dashboard');
     }
 
     public function render()
