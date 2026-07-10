@@ -252,7 +252,7 @@ Livewire.on('swal:error', (data) => {
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="p-20 text-center">
+                            <td colspan="6" class="p-20 text-center">
                                 <div class="flex flex-col items-center">
                                     <div
                                         class="w-20 h-20 rounded-[2rem] bg-white/5 flex items-center justify-center text-white/10 mb-6">
