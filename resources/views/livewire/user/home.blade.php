@@ -12,7 +12,9 @@
             <div class="flex items-center space-x-3 sm:space-x-4 flex-shrink-0">
                 @auth
                     @php
-                        $dashboardRoute = auth()->user()->hasRole('admin') ? route('admin.dashboard') : route('dashboard');
+                        $dashboardRoute = auth()->user()->hasRole('admin')
+                            ? route('admin.dashboard')
+                            : route('dashboard');
                     @endphp
                     <a href="{{ $dashboardRoute }}"
                         class="bg-accent text-primary font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full hover:bg-highlight transition shadow-lg text-sm sm:text-base whitespace-nowrap">
@@ -92,6 +94,15 @@
                                 130 USD Member
                             </div>
                         </div>
+                        <div class="mt-4 flex justify-center sm:justify-end">
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full backdrop-blur-sm shadow-sm">
+                                <span class="font-sans font-medium text-sm text-white tracking-wide">
+                                    Latest registration until <strong class="text-highlight font-bold">August 5,
+                                        2026</strong>
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Date & Register -->
@@ -122,43 +133,59 @@
         <section class="py-24 lg:py-32 relative overflow-hidden bg-[#0139CC]">
             <!-- Decorative Cloud Background Patterns -->
             <div class="absolute inset-0 pointer-events-none opacity-50">
-                <div class="absolute -top-[10%] -right-[5%] w-[800px] h-[800px] rounded-[40%] bg-[#2A76D8]/40 blur-3xl transform rotate-12"></div>
-                <div class="absolute top-[20%] -left-[10%] w-[1000px] h-[1000px] rounded-[35%] bg-[#2A76D8]/30 blur-3xl transform -rotate-12"></div>
-                <div class="absolute top-[60%] right-[5%] w-[600px] h-[600px] rounded-[45%] bg-[#2A76D8]/30 blur-3xl transform rotate-45"></div>
-                <div class="absolute -bottom-[10%] -left-[5%] w-[800px] h-[800px] rounded-[40%] bg-[#2A76D8]/40 blur-3xl transform -rotate-6"></div>
+                <div
+                    class="absolute -top-[10%] -right-[5%] w-[800px] h-[800px] rounded-[40%] bg-[#2A76D8]/40 blur-3xl transform rotate-12">
+                </div>
+                <div
+                    class="absolute top-[20%] -left-[10%] w-[1000px] h-[1000px] rounded-[35%] bg-[#2A76D8]/30 blur-3xl transform -rotate-12">
+                </div>
+                <div
+                    class="absolute top-[60%] right-[5%] w-[600px] h-[600px] rounded-[45%] bg-[#2A76D8]/30 blur-3xl transform rotate-45">
+                </div>
+                <div
+                    class="absolute -bottom-[10%] -left-[5%] w-[800px] h-[800px] rounded-[40%] bg-[#2A76D8]/40 blur-3xl transform -rotate-6">
+                </div>
             </div>
 
             <div class="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl relative z-10">
                 <!-- Top Section -->
                 <div class="flex flex-col items-center justify-center mb-20 md:mb-32 relative">
-                    <h2 class="text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-black text-white drop-shadow-lg z-20 tracking-tight leading-none mb-2 md:mb-4">
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-black text-white drop-shadow-lg z-20 tracking-tight leading-none mb-2 md:mb-4">
                         Participants'
                     </h2>
                     <div class="relative z-30">
-                        <div 
-                        class="font-heading font-black text-highlight text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] z-10">
-                        Benefit</div>
+                        <div
+                            class="font-heading font-black text-highlight text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] z-10">
+                            Benefit</div>
                     </div>
-                    <div class="font-heading font-black text-accent text-4xl md:text-5xl mt-2 tracking-wide drop-shadow-md"">
+                    <div
+                        class="font-heading font-black text-accent text-4xl md:text-5xl mt-2 tracking-wide drop-shadow-md"">
                         What We Provide..
                     </div>
                 </div>
 
                 <!-- Items List -->
                 <div class="flex flex-col space-y-20 md:space-y-32">
-                    
+
                     <!-- Item 1: Transportation -->
                     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                         <div class="w-full md:w-5/12 flex-shrink-0">
-                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                                <img src="{{ asset('assets/images/transportation.png') }}" alt="Transportation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            <div
+                                class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/transportation.png') }}" alt="Transportation"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10">
+                                </div>
                             </div>
                         </div>
                         <div class="w-full md:w-7/12 text-left">
-                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
+                            <h3
+                                class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
                                 Transportation</h3>
-                            <p class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-snug drop-shadow-sm">
+                            <p
+                                class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-snug drop-shadow-sm">
                                 Airport Soekarno Hatta Airport (CGK) – UNMA Arrival & Departure<br>
                                 Cirebon Station (CN) – UNMA
                             </p>
@@ -168,15 +195,21 @@
                     <!-- Item 2: Programme Kit -->
                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
                         <div class="w-full md:w-5/12 flex-shrink-0">
-                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group bg-white/5">
-                                <img src="{{ asset('assets/images/vest.png') }}" alt="Programme Kit" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            <div
+                                class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group bg-white/5">
+                                <img src="{{ asset('assets/images/vest.png') }}" alt="Programme Kit"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10">
+                                </div>
                             </div>
                         </div>
                         <div class="w-full md:w-7/12 text-left md:text-right">
-                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
+                            <h3
+                                class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-4 tracking-tight drop-shadow-md">
                                 Programme Kit</h3>
-                            <ul class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                            <ul
+                                class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
                                 <li>1x Programme Vest, T-Shirt, Boonie Hat</li>
                                 <li>1x Programme Lanyard with Participants' Tag</li>
                                 <li>1x Digital Mobility Programme Certificate</li>
@@ -187,17 +220,24 @@
                     <!-- Item 3: Adventure Activities -->
                     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                         <div class="w-full md:w-5/12 flex-shrink-0">
-                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                                <img src="{{ asset('assets/images/adventure.png') }}" alt="Adventure Activities" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            <div
+                                class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/adventure.png') }}" alt="Adventure Activities"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10">
+                                </div>
                             </div>
                         </div>
                         <div class="w-full md:w-7/12 text-left">
-                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
+                            <h3
+                                class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
                                 Adventure Activities</h3>
-                            <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
+                            <div
+                                class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
                                 Inclusive In Participation Fee!</div>
-                            <ul class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                            <ul
+                                class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
                                 <li>- Exploring Pasar Bumi Pakuwon</li>
                                 <li>- Cikadongdong River Tubing</li>
                                 <li>- Exploration Situ Cipanten</li>
@@ -208,17 +248,24 @@
                     <!-- Item 4: Networking Session -->
                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
                         <div class="w-full md:w-5/12 flex-shrink-0">
-                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                                <img src="{{ asset('assets/images/networking.png') }}" alt="Networking Session" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            <div
+                                class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/networking.png') }}" alt="Networking Session"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div
+                                    class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10">
+                                </div>
                             </div>
                         </div>
                         <div class="w-full md:w-7/12 text-left md:text-right">
-                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
+                            <h3
+                                class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
                                 Networking Session</h3>
-                            <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
+                            <div
+                                class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
                                 But We Make It Laidback & Outdoor</div>
-                            <ul class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
+                            <ul
+                                class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm space-y-2">
                                 <li>Campire & BBQ Networking</li>
                                 <li>Global Buddies Networking Sessions</li>
                             </ul>
@@ -228,26 +275,34 @@
                     <!-- Item 5: Hiking -->
                     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 relative">
                         <div class="w-full md:w-5/12 flex-shrink-0 relative z-20">
-                            <div class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-                                <img src="{{ asset('assets/images/hiking.png') }}" alt="Hiking" class="absolute inset-0 w-full h-full object-cover scale-[1.25] md:scale-[1.3] transition-transform duration-700 group-hover:scale-[1.35] md:group-hover:scale-[1.4]">
-                                <div class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10"></div>
+                            <div
+                                class="relative w-full aspect-[4/3] rounded-3xl md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
+                                <img src="{{ asset('assets/images/hiking.png') }}" alt="Hiking"
+                                    class="absolute inset-0 w-full h-full object-cover scale-[1.25] md:scale-[1.3] transition-transform duration-700 group-hover:scale-[1.35] md:group-hover:scale-[1.4]">
+                                <div
+                                    class="absolute inset-0 rounded-3xl md:rounded-[3rem] border-4 md:border-[6px] border-dashed border-highlight pointer-events-none z-10">
+                                </div>
                             </div>
                         </div>
                         <div class="w-full md:w-7/12 text-left relative z-20">
-                            <h3 class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
+                            <h3
+                                class="font-heading font-black text-4xl md:text-5xl lg:text-7xl text-white mb-3 tracking-tight drop-shadow-md">
                                 Hiking</h3>
-                            <div class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
+                            <div
+                                class="font-sans text-highlight font-black text-2xl md:text-3xl lg:text-4xl mb-6 drop-shadow-sm">
                                 Once In a Lifetime Experience!</div>
-                            <p class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm">
+                            <p
+                                class="font-sans text-highlight font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed drop-shadow-sm">
                                 Hiking from Sampora Hill to<br>Ciranca Lake
                             </p>
                         </div>
-                        
+
                     </div>
-                    
+
                     <!-- And Many More!! (Both Mobile & Desktop) -->
                     <div class="flex justify-end mt-12 md:mt-24 lg:mt-32 w-full relative z-10 lg:pr-12">
-                        <h3 class="font-heading italic font-black text-[4rem] md:text-[6rem] lg:text-[8rem] text-white transform -rotate-6 text-right leading-none pb-8" style="filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.5));">
+                        <h3 class="font-heading italic font-black text-[4rem] md:text-[6rem] lg:text-[8rem] text-white transform -rotate-6 text-right leading-none pb-8"
+                            style="filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.5));">
                             And Many<br>More!!
                         </h3>
                     </div>
@@ -273,74 +328,91 @@
                 <div class="relative w-full max-w-7xl mx-auto mb-20 mt-12 hidden md:block px-4 lg:px-8">
                     <div class="grid grid-cols-4 gap-6 lg:gap-12 relative z-10">
                         <!-- Photo 1 -->
-                        <div class="transform -rotate-[6deg] hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out mt-4">
+                        <div
+                            class="transform -rotate-[6deg] hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out mt-4">
                             <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
-                                <img src="{{ asset('assets/images/activities-1.png') }}" alt="Activity 1" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                                <img src="{{ asset('assets/images/activities-1.png') }}" alt="Activity 1"
+                                    class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
                             </div>
                         </div>
                         <!-- Photo 2 -->
-                        <div class="transform rotate-[4deg] translate-y-4 lg:translate-y-8 hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out">
+                        <div
+                            class="transform rotate-[4deg] translate-y-4 lg:translate-y-8 hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out">
                             <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
-                                <img src="{{ asset('assets/images/activities-2.png') }}" alt="Activity 2" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                                <img src="{{ asset('assets/images/activities-2.png') }}" alt="Activity 2"
+                                    class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
                             </div>
                         </div>
                         <!-- Photo 3 -->
-                        <div class="transform -rotate-[3deg] hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out mt-2">
+                        <div
+                            class="transform -rotate-[3deg] hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out mt-2">
                             <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
-                                <img src="{{ asset('assets/images/activities-3.png') }}" alt="Activity 3" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                                <img src="{{ asset('assets/images/activities-3.png') }}" alt="Activity 3"
+                                    class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
                             </div>
                         </div>
                         <!-- Photo 4 -->
-                        <div class="transform rotate-[5deg] translate-y-3 lg:translate-y-6 hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out">
+                        <div
+                            class="transform rotate-[5deg] translate-y-3 lg:translate-y-6 hover:rotate-0 hover:scale-105 transition-all duration-300 ease-out">
                             <div class="bg-white p-2 md:p-3 rounded-[1.5rem] shadow-2xl">
-                                <img src="{{ asset('assets/images/activities-4.png') }}" alt="Activity 4" class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
+                                <img src="{{ asset('assets/images/activities-4.png') }}" alt="Activity 4"
+                                    class="w-full h-32 md:h-40 lg:h-64 object-cover rounded-[1rem]">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <style>
-                    .hide-scrollbar::-webkit-scrollbar { display: none; }
-                    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+                    .hide-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .hide-scrollbar {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
                 </style>
 
                 <!-- Mobile version of Photo Collage -->
                 <div x-data="{
-                        init() {
-                            let slider = this.$refs.slider;
-                            setInterval(() => {
-                                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 20) {
-                                    slider.scrollTo({ left: 0, behavior: 'smooth' });
-                                } else {
-                                    slider.scrollBy({ left: 284, behavior: 'smooth' });
-                                }
-                            }, 3000);
-                        }
-                    }" 
-                    x-ref="slider"
+                    init() {
+                        let slider = this.$refs.slider;
+                        setInterval(() => {
+                            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 20) {
+                                slider.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                slider.scrollBy({ left: 284, behavior: 'smooth' });
+                            }
+                        }, 3000);
+                    }
+                }" x-ref="slider"
                     class="flex md:hidden overflow-x-auto gap-6 pb-12 px-6 snap-x snap-mandatory relative z-10 -mx-4 hide-scrollbar pt-6 mb-8">
-                     <!-- Photo 1 -->
+                    <!-- Photo 1 -->
                     <div class="min-w-[260px] snap-center transform -rotate-3">
                         <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
-                            <img src="{{ asset('assets/images/activities-1.png') }}" alt="Activity 1" class="w-full h-56 object-cover rounded-xl">
+                            <img src="{{ asset('assets/images/activities-1.png') }}" alt="Activity 1"
+                                class="w-full h-56 object-cover rounded-xl">
                         </div>
                     </div>
                     <!-- Photo 2 -->
                     <div class="min-w-[260px] snap-center transform rotate-2 mt-6">
                         <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
-                            <img src="{{ asset('assets/images/activities-2.png') }}" alt="Activity 2" class="w-full h-56 object-cover rounded-xl">
+                            <img src="{{ asset('assets/images/activities-2.png') }}" alt="Activity 2"
+                                class="w-full h-56 object-cover rounded-xl">
                         </div>
                     </div>
                     <!-- Photo 3 -->
                     <div class="min-w-[260px] snap-center transform -rotate-2">
                         <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
-                            <img src="{{ asset('assets/images/activities-3.png') }}" alt="Activity 3" class="w-full h-56 object-cover rounded-xl">
+                            <img src="{{ asset('assets/images/activities-3.png') }}" alt="Activity 3"
+                                class="w-full h-56 object-cover rounded-xl">
                         </div>
                     </div>
                     <!-- Photo 4 -->
                     <div class="min-w-[260px] snap-center transform rotate-3 mt-4">
                         <div class="bg-white p-3 rounded-[1.25rem] shadow-xl">
-                            <img src="{{ asset('assets/images/activities-4.png') }}" alt="Activity 4" class="w-full h-56 object-cover rounded-xl">
+                            <img src="{{ asset('assets/images/activities-4.png') }}" alt="Activity 4"
+                                class="w-full h-56 object-cover rounded-xl">
                         </div>
                     </div>
                 </div>
