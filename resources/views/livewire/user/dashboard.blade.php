@@ -132,8 +132,8 @@
                                 @endforeach
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
             </div>
 
             {{-- Sidebar Info --}}
@@ -156,14 +156,16 @@
                     </div>
                 </div>
             </div>
-        {{-- Action Cards --}}
-        @php
-            $transportType = $this->registration->transportation['type'] ?? null;
-            $showArrival = in_array($transportType, ['Plane', 'Train']);
-        @endphp
-        <div class="order-2 lg:order-3 lg:col-span-3 w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 {{ $showArrival ? 'lg:grid-cols-3' : '' }} gap-8 items-start">
-                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
+            {{-- Action Cards --}}
+            @php
+                $transportType = $this->registration->transportation['type'] ?? null;
+                $showArrival = in_array($transportType, ['Plane', 'Train']);
+            @endphp
+            <div class="order-2 lg:order-3 lg:col-span-3 w-full">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 {{ $showArrival ? 'lg:grid-cols-3' : '' }} gap-8 items-start">
+                    <div
+                        class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
                         <div class="flex items-center justify-between mb-8">
                             <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Payment
                                 Status</h4>
@@ -207,7 +209,8 @@
                     <div
                         class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
                         <div class="flex items-center justify-between mb-8">
-                            <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Information</h4>
+                            <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Information
+                            </h4>
                             <div
                                 class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-highlight/30 transition-colors">
                                 <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor"
@@ -218,43 +221,57 @@
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <div class="bg-highlight/10 border border-highlight/20 rounded-2xl p-4 flex flex-col gap-3">
+                            <div
+                                class="bg-highlight/10 border border-highlight/20 rounded-2xl p-4 flex flex-col gap-3">
                                 <div class="flex items-start gap-3">
-                                    <div class="w-10 h-10 shrink-0 bg-highlight rounded-xl flex items-center justify-center mt-0.5">
-                                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    <div
+                                        class="w-10 h-10 shrink-0 bg-highlight rounded-xl flex items-center justify-center mt-0.5">
+                                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h5 class="text-sm md:text-base font-black uppercase text-highlight tracking-widest mb-2">Important Information</h5>
+                                        <h5
+                                            class="text-sm md:text-base font-black uppercase text-highlight tracking-widest mb-2">
+                                            Important Information</h5>
                                         <p class="text-sm md:text-base text-white leading-relaxed font-bold">
-                                            Participants are required to bring a <strong class="text-highlight bg-highlight/10 px-2 py-0.5 rounded border border-highlight/20">tumbler</strong> and <strong class="text-highlight bg-highlight/10 px-2 py-0.5 rounded border border-highlight/20">typical ingredients</strong> of their country for the cooking night.
+                                            Participants are required to bring a <strong
+                                                class="text-highlight bg-highlight/10 px-2 py-0.5 rounded border border-highlight/20">tumbler</strong>
+                                            and <strong
+                                                class="text-highlight bg-highlight/10 px-2 py-0.5 rounded border border-highlight/20">typical
+                                                ingredients</strong> of their country for the cooking night.
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between p-4 border border-white/5 bg-white/[0.03] rounded-2xl hover:bg-white/[0.06] transition-[background-color,border-color] duration-300 group/item overflow-hidden">
+                            <div
+                                class="flex items-center justify-between p-4 border border-white/5 bg-white/[0.03] rounded-2xl hover:bg-white/[0.06] transition-[background-color,border-color] duration-300 group/item overflow-hidden">
                                 <div class="flex items-center">
                                     <div
                                         class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mr-4 border border-white/10 group-hover/item:border-highlight/30 transition-colors duration-300">
-                                        <svg class="w-4 h-4 text-white/40 group-hover/item:text-highlight transition-colors duration-300" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        <svg class="w-4 h-4 text-white/40 group-hover/item:text-highlight transition-colors duration-300"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
                                     </div>
                                     <span
-                                        class="text-xs font-black uppercase tracking-widest text-white/70 group-hover/item:text-white transition-colors duration-300">Event Rundown</span>
+                                        class="text-xs font-black uppercase tracking-widest text-white/70 group-hover/item:text-white transition-colors duration-300">Event
+                                        Rundown</span>
                                 </div>
                                 <div class="flex items-center space-x-1">
-                                    <button @click="previewModal = true; previewUrl = '{{ asset('assets/documents/Rundown Capeu International Student-UNMA 2026.pdf') }}'; previewTitle = 'Event Rundown'; previewType = 'pdf'"
-                                        class="p-3 text-white/20 hover:text-highlight transition-colors duration-300 outline-none focus:outline-none" title="Preview Document">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2"
+                                    <button
+                                        @click="previewModal = true; previewUrl = '{{ asset('assets/documents/Itenary CAPEU 2026.pdf') }}'; previewTitle = 'Event Rundown'; previewType = 'pdf'"
+                                        class="p-3 text-white/20 hover:text-highlight transition-colors duration-300 outline-none focus:outline-none"
+                                        title="Preview Document">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </svg>
                                     </button>
@@ -264,32 +281,46 @@
                         </div>
                     </div>
 
-                    @if($showArrival)
-                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
-                        <div class="flex items-center justify-between mb-8">
-                            <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">Arrival Information</h4>
-                            <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-highlight/30 transition-colors">
-                                <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
+                    @if ($showArrival)
+                        <div
+                            class="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 shadow-2xl group overflow-hidden relative flex flex-col h-full">
+                            <div class="flex items-center justify-between mb-8">
+                                <h4 class="font-heading font-black text-lg uppercase tracking-widest text-white">
+                                    Arrival Information</h4>
+                                <div
+                                    class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-highlight/30 transition-colors">
+                                    <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div
+                                class="p-6 bg-highlight/5 border border-highlight/20 rounded-3xl flex items-start gap-4">
+                                <div class="mt-1">
+                                    <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <p class="text-sm font-medium text-white/90 leading-relaxed font-sans">
+                                    @if ($transportType === 'Plane')
+                                        The committee will wait at <span
+                                            class="font-bold text-highlight">Soekarno-Hatta Airport (CGK)</span> on
+                                        <span class="font-bold text-white">August 23, 2026, at 2 PM</span> Western
+                                        Indonesia Time.
+                                    @elseif($transportType === 'Train')
+                                        The committee will wait at <span class="font-bold text-highlight">Cirebon Train
+                                            Station (CN)</span> at <span class="font-bold text-white">August 23, 2026,
+                                            at 4 PM</span> Western Indonesia Time.
+                                    @endif
+                                </p>
                             </div>
                         </div>
-                        <div class="p-6 bg-highlight/5 border border-highlight/20 rounded-3xl flex items-start gap-4">
-                            <div class="mt-1">
-                                <svg class="w-6 h-6 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <p class="text-sm font-medium text-white/90 leading-relaxed font-sans">
-                                @if($transportType === 'Plane')
-                                    The committee will wait at <span class="font-bold text-highlight">Soekarno-Hatta Airport (CGK)</span> on <span class="font-bold text-white">August 23, 2026, at 2 PM</span> Western Indonesia Time.
-                                @elseif($transportType === 'Train')
-                                    The committee will wait at <span class="font-bold text-highlight">Cirebon Train Station (CN)</span> at <span class="font-bold text-white">August 23, 2026, at 4 PM</span> Western Indonesia Time.
-                                @endif
-                            </p>
-                        </div>
-                    </div>
                     @endif
                 </div>
             </div>
