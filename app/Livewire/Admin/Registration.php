@@ -9,15 +9,12 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
 
 #[Layout('layouts.sidebar', ['header' => 'Manage Registrations'])]
 #[Title('Registrations - CAPEU 2026')]
 class Registration extends Component
 {
-    use WithPagination;
-
     public string $search = '';
 
     public string $statusFilter = '';
@@ -33,7 +30,6 @@ class Registration extends Component
 
     public function updatingSearch()
     {
-        $this->resetPage();
     }
 
     public function viewDetails(int $id)
@@ -124,7 +120,7 @@ class Registration extends Component
                 $query->where('status', $this->statusFilter);
             })
             ->latest()
-            ->paginate(10);
+            ->get();
 
         return view('livewire.admin.registration', [
             'registrations' => $registrations,

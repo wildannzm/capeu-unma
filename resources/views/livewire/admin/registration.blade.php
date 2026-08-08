@@ -170,7 +170,7 @@ Livewire.on('swal:error', (data) => {
                             wire:key="reg-{{ $reg->id }}-{{ $reg->status }}">
                             <td class="p-8">
                                 <span class="text-sm font-black text-white/40">
-                                    {{ $registrations->firstItem() + $index }}
+                                    {{ $loop->iteration }}
                                 </span>
                             </td>
                             <td class="p-8">
@@ -277,7 +277,7 @@ Livewire.on('swal:error', (data) => {
                 <div class="p-8 space-y-6" wire:key="reg-mobile-{{ $reg->id }}-{{ $reg->status }}">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-black text-white/20 uppercase tracking-widest">
-                            #{{ $registrations->firstItem() + $index }} - {{ $reg->registration_number }}
+                            #{{ $loop->iteration }} - {{ $reg->registration_number }}
                         </span>
                         @php
                             $statusColor = match ($reg->status) {
@@ -346,11 +346,11 @@ Livewire.on('swal:error', (data) => {
             @endforelse
         </div>
 
-        @if ($registrations->hasPages())
+        {{-- @if ($registrations->hasPages())
             <div class="p-8 border-t border-white/5">
                 {{ $registrations->links() }}
             </div>
-        @endif
+        @endif --}}
     </div>
 
     {{-- Detail Modal --}}

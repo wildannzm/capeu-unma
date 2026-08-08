@@ -103,27 +103,6 @@
                     </p>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-4">
-                    <div class="relative flex-1 min-w-[300px]">
-                        <span class="absolute left-6 top-1/2 -translate-y-1/2 text-white/20">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </span>
-                        <input type="text" wire:model.live.debounce.300ms="search"
-                            placeholder="Search by participant name..."
-                            class="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-sm text-white placeholder-white/20 focus:outline-none focus:border-highlight/50 transition-all">
-                    </div>
-
-                    <select wire:model.live="statusFilter"
-                        class="px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-sm text-white focus:outline-none focus:border-highlight/50 transition-all appearance-none cursor-pointer">
-                        <option value="" class="bg-primary">All Statuses</option>
-                        <option value="pending" class="bg-primary">Pending</option>
-                        <option value="verified" class="bg-primary">Verified</option>
-                        <option value="rejected" class="bg-primary">Rejected</option>
-                    </select>
-                </div>
             </div>
         </div>
 
@@ -137,7 +116,8 @@
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Reg. No</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Participant
                             </th>
-                            <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Participant Type</th>
+                            <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Participant
+                                Type</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Amount</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Method</th>
                             <th class="p-8 text-[10px] font-black text-white/40 uppercase tracking-widest">Status</th>
@@ -152,7 +132,7 @@
                                 wire:key="payment-{{ $payment->id }}-{{ $payment->status }}">
                                 <td class="p-8">
                                     <span class="text-sm font-black text-white/40">
-                                        {{ $payments->firstItem() + $index }}
+                                        {{ $loop->iteration }}
                                     </span>
                                 </td>
                                 <td class="p-8">
@@ -284,7 +264,7 @@
                     <div class="p-8 space-y-6" wire:key="payment-mobile-{{ $payment->id }}-{{ $payment->status }}">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-black text-white/20 uppercase tracking-widest">
-                                #{{ $payments->firstItem() + $index }} - {{ $payment->registration->registration_number }}
+                                #{{ $loop->iteration }} - {{ $payment->registration->registration_number }}
                             </span>
                             @php
                                 $statusColor = match ($payment->status) {
@@ -367,10 +347,10 @@
                 @endforelse
             </div>
 
-            @if ($payments->hasPages())
+            {{-- @if ($payments->hasPages())
                 <div class="p-8 border-t border-white/5">
                     {{ $payments->links() }}
                 </div>
-            @endif
+            @endif --}}
         </div>
     </div>

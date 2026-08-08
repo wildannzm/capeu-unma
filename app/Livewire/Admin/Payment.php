@@ -7,14 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 #[Layout('layouts.sidebar', ['header' => 'Manage Payments'])]
 #[Title('Payments - CAPEU 2026')]
 class Payment extends Component
 {
-    use WithPagination;
-
     public string $search = '';
 
     public string $statusFilter = '';
@@ -24,10 +21,7 @@ class Payment extends Component
         'statusFilter' => ['except' => ''],
     ];
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
+    public function updatingSearch() {}
 
     public function updateStatus(int $id, string $status)
     {
@@ -69,7 +63,7 @@ class Payment extends Component
                 $query->where('status', $this->statusFilter);
             })
             ->latest()
-            ->paginate(10);
+            ->get();
 
         return view('livewire.admin.payment', [
             'payments' => $payments,
