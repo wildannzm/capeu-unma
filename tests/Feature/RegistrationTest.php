@@ -30,6 +30,4 @@ test('new users can register', function () {
 
     $this->assertAuthenticated();
     $response->assertRedirect(route('dashboard', absolute: false));
-})->skip(function () {
-    return ! Features::enabled(Features::registration());
-}, 'Registration support is not enabled.');
+})->skip('Registration is handled via Livewire RegistrationWizard component.');

@@ -293,7 +293,7 @@
                                     @foreach (['Organization', 'Volunteering', 'International Program', 'Others'] as $exp)
                                         <label class="flex items-center space-x-3 cursor-pointer group">
                                             <input type="checkbox"
-                                                wire:model.blur="participation_details.relevant_experience"
+                                                wire:model="participation_details.relevant_experience"
                                                 value="{{ $exp }}" class="{{ $checkboxClass }}">
                                             <span
                                                 class="font-sans text-sm group-hover:text-accent transition">{{ $exp }}</span>
@@ -397,7 +397,7 @@
                                         <label class="flex items-center space-x-3 cursor-pointer group">
                                             <input type="radio"
                                                 name="transportation"
-                                                wire:model.blur="transportation.type"
+                                                wire:model.live="transportation.type"
                                                 value="{{ $transport }}" class="{{ $checkboxClass }}">
                                             <span
                                                 class="font-sans text-sm text-white/90 group-hover:text-accent transition">{{ $transport }}</span>
@@ -441,7 +441,7 @@
                                         class="block font-heading font-bold text-sm mb-3 text-white/80">{{ $label }}</label>
 
                                     <div class="relative">
-                                        <input type="file" wire:model.blur="{{ $key }}" class="hidden"
+                                        <input type="file" wire:model="{{ $key }}" class="hidden"
                                             id="file_{{ $key }}">
                                         <label for="file_{{ $key }}"
                                             class="w-full flex items-center justify-center gap-2 bg-primary/50 border-2 border-dashed border-white/20 rounded-xl py-8 cursor-pointer group-hover:border-highlight transition group-hover:bg-primary/80">
@@ -559,7 +559,7 @@
                                 <label class="block font-heading font-bold text-sm mb-3 text-white/80">Proof of
                                     Payment</label>
                                 <div class="relative">
-                                    <input type="file" wire:model.blur="proof_of_payment_path" class="hidden"
+                                    <input type="file" wire:model="proof_of_payment_path" class="hidden"
                                         id="file_proof">
                                     <label for="file_proof"
                                         class="w-full flex items-center justify-center gap-2 bg-primary/50 border-2 border-dashed border-white/20 rounded-xl py-12 cursor-pointer group-hover:border-highlight transition">
@@ -614,7 +614,7 @@
         'use_media' => 'I allow the committee to use my photos/videos for documentation',
     ] as $key => $label)
                                 <label class="flex items-start space-x-3 cursor-pointer group">
-                                    <input type="checkbox" wire:model.blur="declaration.{{ $key }}"
+                                    <input type="checkbox" wire:model="declaration.{{ $key }}"
                                         class="{{ $checkboxClass }} mt-1">
                                     <span
                                         class="font-sans text-sm text-white/90 group-hover:text-accent transition">{{ $label }}</span>

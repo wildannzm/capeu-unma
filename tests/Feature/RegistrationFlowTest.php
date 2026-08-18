@@ -63,29 +63,36 @@ it('can complete the full registration wizard flow', function () {
         ->call('nextStep')
         ->assertSet('currentStep', 5)
 
-        // Step 5: Document Upload
+        // Step 5: Transportation
+        ->set('transportation.type', 'Plane')
+        ->call('nextStep')
+        ->assertSet('currentStep', 6)
+
+        // Step 6: Document Upload
         ->set('passport_path', $passport)
         ->set('student_card_path', $studentCard)
         ->set('formal_photo_path', $formalPhoto)
         ->call('nextStep')
-        ->assertSet('currentStep', 6)
+        ->assertSet('currentStep', 7)
 
-        // Step 6: Payment Verification
+        // Step 7: Payment Verification
         ->set('payment_info.payment_method', 'Bank Transfer')
         ->set('proof_of_payment_path', $paymentProof)
         ->call('nextStep')
-        ->assertSet('currentStep', 7)
+        ->assertSet('currentStep', 8)
 
-        // Step 7: Declaration
+        // Step 8: Declaration
         ->set('declaration.accurate_info', true)
         ->set('declaration.follow_rules', true)
         ->set('declaration.use_media', true)
         ->call('nextStep')
-        ->assertSet('currentStep', 8)
+        ->assertSet('currentStep', 9)
 
-        // Step 8: Optional & Submit
+        // Step 9: Optional & Submit
         ->set('advanced_info.video_url', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
         ->call('submit')
+        ->assertSet('currentStep', 10)
+        ->call('finishRegistration')
         ->assertRedirect('/dashboard');
 
     // Assert database records
